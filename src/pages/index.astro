@@ -1,75 +1,79 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+// src/pages/index.astro
+// Esta es la página de inicio de tu sitio.
+import BaseHead from '../components/BaseHead.astro'; // Importa el componente BaseHead
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-// Puedes definir un título y descripción específicos para la página de inicio
-const pageTitle = "Servicios Electromecánicos SCJ | Soluciones Profesionales";
+// Título y descripción específicos para la página de inicio
+const pageTitle = "Servicios Electromecánicos SCJ | Expertos en Embobinados, Compresores y Seguridad en Tijuana";
 const pageDescription = "Bienvenido a Servicios Electromecánicos SCJ. Ofrecemos soluciones profesionales en embobinados de motores, mantenimiento de compresores y sistemas de seguridad electrónica en Tijuana y Baja California.";
 ---
 
 <!doctype html>
-<html lang="es"> {/* Cambiado a 'es' para español */}
-	<head>
-		<BaseHead title={pageTitle} description={pageDescription} />
-	</head>
-	<body>
-		{/* Este es el div para la marca de agua que ya configuramos en global.css */}
-		<div class="watermark-logo"></div>
+<html lang="es"> {/* Asegúrate de que el idioma sea 'es' */}
+    <head>
+        {/* Aquí es donde se usa el componente BaseHead.
+            TODO el contenido de BaseHead.astro se insertará aquí. */}
+        <BaseHead title={pageTitle} description={pageDescription} />
+    </head>
+    <body>
+        {/* Este es el div para la marca de agua que ya configuramos en global.css */}
+        <div class="watermark-logo"></div>
 
-		{/* El componente de encabezado que contiene tu logo y navegación */}
-		<Header />
+        {/* El componente de encabezado que contiene tu logo y navegación */}
+        <Header />
 
-		{/* Contenido principal de la página de inicio */}
-		<main>
-			<section class="hero-section">
-				<h1>Bienvenido a Servicios Electromecánicos SCJ</h1>
-				<p class="subtitle">Soluciones profesionales en embobinados, compresores y seguridad electrónica para la industria y el hogar en Tijuana y Baja California.</p>
-				<a href="/nuestros-servicios" class="button-primary">Explora Nuestros Servicios</a>
-			</section>
+        {/* Contenido principal de la página de inicio */}
+        <main>
+            <section class="hero-section">
+                <h1>Bienvenido a Servicios Electromecánicos SCJ</h1>
+                <p class="subtitle">Soluciones profesionales en embobinados, compresores y seguridad electrónica para la industria y el hogar en Tijuana y Baja California.</p>
+                <a href="/nuestros-servicios" class="button-primary">Explora Nuestros Servicios</a>
+            </section>
 
-			<section>
-				<h2>¿Por Qué Elegir SCJ?</h2>
-				<div class="features-grid">
-					<div class="feature-item">
-						<h3>Experiencia y Calidad</h3>
-						<p>Décadas de experiencia garantizando trabajos duraderos y de alta precisión.</p>
-					</div>
-					<div class="feature-item">
-						<h3>Atención Personalizada</h3>
-						<p>Entendemos tus necesidades para ofrecerte la mejor solución.</p>
-					</div>
-					<div class="feature-item">
-						<h3>Tecnología de Vanguardia</h3>
-						<p>Utilizamos las mejores herramientas y técnicas del mercado.</p>
-					</div>
-				</div>
-			</section>
+            <section>
+                <h2>¿Por Qué Elegir SCJ?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Experiencia y Calidad</h3>
+                        <p>Décadas de experiencia garantizando trabajos duraderos y de alta precisión.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Atención Personalizada</h3>
+                        <p>Entendemos tus necesidades para ofrecerte la mejor solución.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Tecnología de Vanguardia</h3>
+                        <p>Utilizamos las mejores herramientas y técnicas del mercado.</p>
+                    </div>
+                </div>
+            </section>
 
-			<section class="services-overview-section">
-				<h2>Nuestros Servicios Destacados</h2>
-				<div class="service-cards">
-					<a href="/embobinados" class="service-card">
-						<h3>Embobinados</h3>
-						<p>Rebobinado y reparación de motores eléctricos, bombas y transformadores.</p>
-					</a>
-					<a href="/compresores" class="service-card">
-						<h3>Compresores</h3>
-						<p>Mantenimiento, reparación y optimización de compresores de aire.</p>
-					</a>
-					<a href="/seguridad-electronica" class="service-card">
-						<h3>Seguridad Electrónica</h3>
-						<p>CCTV, control de acceso y sistemas de alarma para tu tranquilidad.</p>
-					</a>
-				</div>
-				<p class="cta-text">¿Necesitas un servicio especializado? <a href="/cotizacion">Solicita tu cotización ahora.</a></p>
-			</section>
-		</main>
+            <section class="services-overview-section">
+                <h2>Nuestros Servicios Destacados</h2>
+                <div class="service-cards">
+                    <a href="/embobinados" class="service-card">
+                        <h3>Embobinados</h3>
+                        <p>Rebobinado y reparación de motores eléctricos, bombas y transformadores.</p>
+                    </a>
+                    <a href="/compresores" class="service-card">
+                        <h3>Compresores</h3>
+                        <p>Mantenimiento, reparación y optimización de compresores de aire.</p>
+                    </a>
+                    <a href="/seguridad-electronica" class="service-card">
+                        <h3>Seguridad Electrónica</h3>
+                        <p>CCTV, control de acceso y sistemas de alarma para tu tranquilidad.</p>
+                    </a>
+                </div>
+                <p class="cta-text">¿Necesitas un servicio especializado? <a href="/cotizacion">Solicita tu cotización ahora.</a></p>
+            </section>
+        </main>
 
-		{/* El componente de pie de página */}
-		<Footer />
-	</body>
+        {/* El componente de pie de página */}
+        <Footer />
+    </body>
 </html>
 
 {/* Estilos específicos para la página de inicio. Se colocan al final del archivo .astro */}
