@@ -1,0 +1,180 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Puedes importar la descripción específica para esta página
+const pageTitle = "Embobinados Profesionales";
+const pageDescription = "Ofrecemos servicios expertos de embobinados para motores eléctricos, bombas y transformadores, garantizando calidad y durabilidad.";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <BaseHead title={pageTitle} description={pageDescription} />
+    </head>
+    <body>
+        <div class="watermark-logo"></div>
+        <Header />
+        <main>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
+
+            <section>
+                <h2>Nuestros Servicios de Embobinado Incluyen:</h2>
+                <ul>
+                    <li>Rebobinado de motores AC y DC.</li>
+                    <li>Reparación y embobinado de bombas de agua.</li>
+                    <li>Servicios de embobinado para transformadores.</li>
+                    <li>Diagnóstico y pruebas de aislamiento.</li>
+                    <li>Uso de materiales de alta calidad para máxima durabilidad.</li>
+                </ul>
+                <p>
+                    En Servicios Electromecánicos SCJ, nuestros técnicos especializados garantizan un trabajo preciso
+                    y eficiente, extendiendo la vida útil de sus equipos.
+                </p>
+                <p>
+                    <a href="/contactanos">Contáctanos hoy mismo</a> para solicitar una cotización o para más información.
+                </p>
+            </section>
+
+            {/* --- INICIO: NUEVA SECCIÓN DE GALERÍA DE IMÁGENES --- */}
+            <section class="gallery-section">
+                <h2>Trabajos de Embobinado Realizados</h2>
+                <div class="image-grid">
+                    {/*
+                        Asegúrate de que estas rutas sean CORRECTAS.
+                        Deben apuntar a tus imágenes dentro de 'public/Imagenes/embobinados/'
+                        Ejemplo: /Imagenes/embobinados/tu-imagen-1.jpg
+                    */}
+                    <img src="/Imagenes/embobinados/Motor 1.jpeg" alt="Motor eléctrico en proceso de embobinado" loading="lazy" />
+                    <img src="/Imagenes/embobinados/motor 2.jpeg" alt="Detalle de bobinas recién instaladas" loading="lazy" />
+                    <img src="/Imagenes/embobinados/motor 3.jpeg" alt="Bomba de agua reparada y embobinada" loading="lazy" />
+                    {/* Puedes añadir más etiquetas <img> aquí para más imágenes */}
+                    {/* <img src="/Imagenes/motor 4.jpeg" alt="Descripción de la imagen" loading="lazy" /> */}
+                </div>
+            </section>
+            {/* --- FIN: NUEVA SECCIÓN DE GALERÍA DE IMÁGENES --- */}
+
+            {/* --- INICIO: NUEVA SECCIÓN DE MARCAS QUE MANEJAMOS --- */}
+            <section class="brands-section">
+                <h2>Marcas de Motores y Materiales que Manejamos</h2>
+                <div class="brands-list">
+                     {/*
+                        ¡IMPORTANTE!
+                        Asegúrate de que las rutas sean CORRECTAS para tus archivos de logo.
+                        Ejemplo: /Imagenes/marcas/logo-siemens.svg
+                    */}
+                    <img src="/Imagenes/marcas/ABB.png" alt="ABB" loading="lazy" />
+                    <img src="/Imagenes/marcas/BALDOR.png" alt="Logo BALDOR" loading="lazy" />
+                    <img src="/Imagenes/marcas/GENERAL ELECTRIC.png" alt="Logo GENERAL ELECTRIC" loading="lazy" />
+                    <img src="/Imagenes/marcas/LEESON.png" alt="Logo LEESON" loading="lazy" />
+                    <img src="/Imagenes/marcas/SCHNEIDER ELECTRIC.png" alt="Logo SCHNEIDER ELECTRIC" loading="lazy" />
+                    <img src="/Imagenes/marcas/SEW EURODRAVE.png" alt="Logo SEW EURODRAVE" loading="lazy" />
+                    <img src="/Imagenes/marcas/SIEMENS.png" alt="Logo SIEMENS" loading="lazy" />
+                    <img src="/Imagenes/marcas/SQUARE D.png" alt="Logo SQUARE D" loading="lazy" />
+                    <img src="/Imagenes/marcas/TECO.png" alt="Logo TECO" loading="lazy" />
+                    <img src="/Imagenes/marcas/US MOTORS.png" alt="Logo US MOTORS" loading="lazy" />
+                    <img src="/Imagenes/marcas/WEG.png" alt="Logo WEG" loading="lazy" />
+                    {/* Añade más etiquetas <img> aquí para cada logo de marca */}
+                </div>
+            </section>
+            {/* --- FIN: NUEVA SECCIÓN DE MARCAS QUE MANEJAMOS --- */}
+
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Estilos existentes para la página (section, h1, h2, ul, a) */
+    section {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        color: var(--color-rojo-acento); /* Usa el rojo para los títulos */
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 20px;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    section a {
+        color: var(--color-turquesa-principal);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    section a:hover {
+        color: var(--color-rojo-acento);
+    }
+
+    /* --- INICIO: ESTILOS PARA GALERÍA DE IMÁGENES (AJUSTADOS) --- */
+    .gallery-section h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+        gap: 1rem; /* Espacio entre imágenes */
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: 180px; /* Altura fija para el contenedor visual de la imagen */
+        object-fit: contain; /* <-- ¡CLAVE! Asegura que la imagen se vea COMPLETA */
+        background-color: #f0f0f0; /* Fondo claro para rellenar el espacio si la imagen no es cuadrada */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.03); /* Efecto de zoom suave al pasar el ratón */
+    }
+    /* --- FIN: ESTILOS PARA GALERÍA DE IMÁGENES --- */
+
+    /* --- INICIO: ESTILOS PARA SECCIÓN DE MARCAS (AJUSTADOS) --- */
+    .brands-section h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .brands-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center; /* Centra los logos verticalmente */
+        gap: 1.5rem; /* Espacio entre los logos (ligeramente ajustado) */
+        padding: 1rem;
+    }
+
+    .brands-list img {
+        max-height: 40px; /* <-- ¡CLAVE! Altura máxima para los logos (reducida de 50px a 40px) */
+        width: auto; /* Ancho automático para mantener la proporción */
+        object-fit: contain; /* Asegura que el logo se vea completo */
+        filter: grayscale(100%); /* Opcional: convierte los logos a escala de grises */
+        opacity: 0.7; /* Opcional: los hace un poco más sutiles */
+        transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .brands-list img:hover {
+        filter: grayscale(0%); /* Opcional: los vuelve a su color original al pasar el ratón */
+        opacity: 1; /* Opcional: los hace completamente visibles al pasar el ratón */
+    }
+    /* --- FIN: ESTILOS PARA SECCIÓN DE MARCAS --- */
+</style>

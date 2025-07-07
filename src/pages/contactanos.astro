@@ -1,0 +1,85 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BrandLogos from '../components/BrandLogos.astro'; // <-- NUEVO IMPORT
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const pageTitle = "Contáctanos";
+const pageDescription = "Estamos listos para ayudarte. Ponte en contacto con Servicios Electromecánicos SCJ para cualquier consulta o soporte.";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <BaseHead title={pageTitle} description={pageDescription} />
+    </head>
+    <body>
+        <div class="watermark-logo"></div>
+        <Header />
+        <main>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
+
+            <section>
+                <h2>Información de Contacto</h2>
+                <p>Puedes comunicarte con nosotros a través de los siguientes medios:</p>
+                <ul>
+                    <li>**Teléfono:** <a href="tel:+526648759275">+52 (664) 875-92-75</a></li> {/* ¡CAMBIA ESTE NÚMERO! */}
+                    <li>**WhatsApp:** <a href="https://wa.me/526647112923" target="_blank" rel="noopener noreferrer">+52 (664) 711-29-23</a></li> {/* ¡CAMBIA ESTE NÚMERO! */}
+                    <li>**Email:** <a href="mailto:embobinados.scj@gmail.com">embobinados.scj@gmail.com</a></li> {/* ¡CAMBIA ESTE EMAIL! */}
+                    <li>**Dirección:** Tijuana, Baja California, México.</li> {/* ¡CAMBIA ESTA DIRECCIÓN! */}
+                    <li>**Horario de Atención:** Lunes a Viernes de 8:00 AM a 6:00 PM</li>
+                </ul>
+                <p>
+                    También puedes utilizar nuestro <a href="/cotizacion">formulario de cotización</a> para enviarnos los detalles de tu proyecto.
+                </p>
+            </section>
+
+           {/* --- INSERTA EL COMPONENTE DE LOGOS DE MARCA AQUÍ --- */}
+            <BrandLogos title="Nuestros Socios y Marcas de Confianza" /> {/* Puedes personalizar el título */}
+            {/* --- FIN DEL COMPONENTE DE LOGOS DE MARCA --- */}
+            
+            </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    section {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        color: var(--color-rojo-acento);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    ul li strong {
+        color: var(--color-turquesa-principal);
+    }
+
+    section a {
+        color: var(--color-turquesa-principal);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    section a:hover {
+        color: var(--color-rojo-acento);
+    }
+</style>

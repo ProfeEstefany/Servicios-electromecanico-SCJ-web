@@ -1,0 +1,112 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BrandLogos from '../components/BrandLogos.astro'; // <-- NUEVO IMPORT
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Título y descripción específicos para esta página
+const pageTitle = "Nuestros Servicios Electromecánicos SCJ";
+const pageDescription = "En Servicios Electromecánicos SCJ ofrecemos soluciones integrales para tus necesidades industriales y de seguridad. Descubre nuestra gama completa de servicios.";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <BaseHead title={pageTitle} description={pageDescription} />
+    </head>
+    <body>
+        <div class="watermark-logo"></div>
+        <Header />
+        <main>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
+
+            <section>
+                <h2>Soluciones Confiables para tu Negocio</h2>
+                <p>
+                    Desde el embobinado preciso de motores hasta la implementación de sistemas de seguridad
+                    electrónica de vanguardia, en SCJ nos dedicamos a ofrecer servicios de la más alta calidad
+                    y durabilidad. Nuestro compromiso es tu satisfacción y la eficiencia de tus operaciones.
+                </p>
+                <h3>Nuestras Áreas de Especialización:</h3>
+                <ul>
+                    <li><a href="/embobinados">Embobinados Profesionales</a>: Rebobinado y reparación de motores 1/4 HP - 150 HP -500 HP O MAS.., bombas de agua, sopladores, ventiladores industriales, frenos magneticos, reparacion de moto-reductores,.</li>
+                    <li><a href="/compresores">Mantenimiento y Reparación de Compresores</a>: Servicio completo para compresores de aire de diversas marcas.</li>
+                    <li><a href="/seguridad-electronica">Sistemas de Seguridad Electrónica</a>: Instalación y mantenimiento de cámaras CCTV, control de acceso y alarmas.</li>
+                </ul>
+                <p>
+                    Explora cada sección para conocer los detalles de nuestros servicios o <a href="/contactanos">contáctanos</a> para una consulta personalizada.
+                </p>
+            </section>
+
+            {/* --- INICIO: SECCIÓN DE GALERÍA DE IMÁGENES DE NUESTROS-SERVICIOS --- */}
+            <section class="gallery-section">
+                <h2>Tipos de servicios para brindarle</h2>
+                <div class="image-grid">
+                    {/*
+                        Asegúrate de que estas rutas sean CORRECTAS.
+                        Deben apuntar a tus imágenes dentro de 'public/Imagenes/compresores/'
+                    */}
+                    <img src="/Imagenes/nuestros-servicios/1.webp" alt="Mantenimiento de compresor industrial" loading="lazy" />
+                    <img src="/Imagenes/nuestros-servicios/2.jpg" alt="Reparación de unidad de compresor" loading="lazy" />
+                    
+                    {/* Añade más etiquetas <img> aquí para más imágenes de compresores */}
+                </div>
+            </section>
+            {/* --- FIN: SECCIÓN DE GALERÍA DE IMÁGENES DE NUESTROS-SERVICIOS --- */}
+
+{/* --- INSERTA EL COMPONENTE DE LOGOS DE MARCA AQUÍ --- */}
+            <BrandLogos title="Trabajamos con las Mejores Marcas" /> {/* Puedes personalizar el título */}
+            {/* --- FIN DEL COMPONENTE DE LOGOS DE MARCA --- */}
+            
+            </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Estilos específicos para esta página */
+    section {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+        color: var(--color-rojo-acento); /* Títulos en rojo */
+    }
+
+    ul {
+        list-style: none; /* Quitamos los puntos por defecto */
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem; /* Espacio para el icono */
+        position: relative;
+    }
+
+    ul li::before {
+        content: '⚙️'; /* Icono de engranaje como viñeta */
+        position: absolute;
+        left: 0;
+        color: var(--color-turquesa-principal);
+        font-size: 1.2rem;
+        line-height: 1;
+    }
+
+    section a {
+        color: var(--color-turquesa-principal);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    section a:hover {
+        color: var(--color-rojo-acento);
+    }
+</style>

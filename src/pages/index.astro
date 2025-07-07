@@ -3,47 +3,202 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Puedes definir un título y descripción específicos para la página de inicio
+const pageTitle = "Servicios Electromecánicos SCJ | Soluciones Profesionales";
+const pageDescription = "Expertos en embobinados, compresores y seguridad electrónica en Tijuana. Calidad y servicio garantizados.";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es"> {/* Cambiado a 'es' para español */}
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={pageTitle} description={pageDescription} />
 	</head>
 	<body>
+		{/* Este es el div para la marca de agua que ya configuramos en global.css */}
+		<div class="watermark-logo"></div>
+
+		{/* El componente de encabezado que contiene tu logo y navegación */}
 		<Header />
+
+		{/* Contenido principal de la página de inicio */}
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero-section">
+				<h1>Bienvenido a Servicios Electromecánicos SCJ</h1>
+				<p class="subtitle">Soluciones profesionales en embobinados, compresores y seguridad electrónica para la industria y el hogar en Tijuana y Baja California.</p>
+				<a href="/nuestros-servicios" class="button-primary">Explora Nuestros Servicios</a>
+			</section>
+
+			<section>
+				<h2>¿Por Qué Elegir SCJ?</h2>
+				<div class="features-grid">
+					<div class="feature-item">
+						<h3>Experiencia y Calidad</h3>
+						<p>Décadas de experiencia garantizando trabajos duraderos y de alta precisión.</p>
+					</div>
+					<div class="feature-item">
+						<h3>Atención Personalizada</h3>
+						<p>Entendemos tus necesidades para ofrecerte la mejor solución.</p>
+					</div>
+					<div class="feature-item">
+						<h3>Tecnología de Vanguardia</h3>
+						<p>Utilizamos las mejores herramientas y técnicas del mercado.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="services-overview-section">
+				<h2>Nuestros Servicios Destacados</h2>
+				<div class="service-cards">
+					<a href="/embobinados" class="service-card">
+						<h3>Embobinados</h3>
+						<p>Rebobinado y reparación de motores eléctricos, bombas y transformadores.</p>
+					</a>
+					<a href="/compresores" class="service-card">
+						<h3>Compresores</h3>
+						<p>Mantenimiento, reparación y optimización de compresores de aire.</p>
+					</a>
+					<a href="/seguridad-electronica" class="service-card">
+						<h3>Seguridad Electrónica</h3>
+						<p>CCTV, control de acceso y sistemas de alarma para tu tranquilidad.</p>
+					</a>
+				</div>
+				<p class="cta-text">¿Necesitas un servicio especializado? <a href="/cotizacion">Solicita tu cotización ahora.</a></p>
+			</section>
 		</main>
+
+		{/* El componente de pie de página */}
 		<Footer />
 	</body>
 </html>
+
+{/* Estilos específicos para la página de inicio. Se colocan al final del archivo .astro */}
+<style>
+    .hero-section {
+        text-align: center;
+        padding: 4rem 2rem;
+        background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco sutil transparente */
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        backdrop-filter: blur(5px); /* Efecto de desenfoque detrás del contenido */
+        -webkit-backdrop-filter: blur(5px); /* Para compatibilidad con Safari */
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+        color: var(--color-rojo-acento);
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.4rem;
+        color: var(--color-blanco);
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .button-primary {
+        display: inline-block;
+        background-color: var(--color-rojo-acento);
+        color: var(--color-blanco);
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button-primary:hover {
+        background-color: #CC0000; /* Un rojo más oscuro */
+        transform: translateY(-2px);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .feature-item {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        text-align: center;
+    }
+
+    .feature-item h3 {
+        color: var(--color-turquesa-principal);
+        font-size: 1.8rem;
+        margin-top: 0;
+    }
+
+    .services-overview-section {
+        margin-top: 4rem;
+        text-align: center;
+    }
+
+    .service-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .service-card {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card h3 {
+        color: var(--color-turquesa-principal);
+        font-size: 1.6rem;
+        margin-top: 0;
+    }
+
+    .service-card p {
+        font-size: 0.95rem;
+    }
+
+    .cta-text {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--color-blanco);
+    }
+
+    .cta-text a {
+        color: var(--color-rojo-acento);
+        text-decoration: underline;
+    }
+
+    .cta-text a:hover {
+        color: #CC0000;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2.5rem;
+        }
+        .hero-section .subtitle {
+            font-size: 1.2rem;
+        }
+        .features-grid, .service-cards {
+            grid-template-columns: 1fr; /* Apila las tarjetas en pantallas pequeñas */
+        }
+    }
+</style>

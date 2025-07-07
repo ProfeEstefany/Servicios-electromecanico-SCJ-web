@@ -1,0 +1,176 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const pageTitle = "Sistemas de Seguridad Electrónica Avanzados";
+const pageDescription = "Protege tu hogar o negocio con nuestras soluciones integrales de seguridad electrónica: CCTV, control de acceso, alarmas y más.";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <BaseHead title={pageTitle} description={pageDescription} />
+    </head>
+    <body>
+        <div class="watermark-logo"></div>
+        <Header />
+        <main>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
+
+            <section>
+                <h2>Nuestras Soluciones en Seguridad Electrónica:</h2>
+                <ul>
+                    <li>Instalación y configuración de sistemas de **Cámaras CCTV** (circuito cerrado de televisión).</li>
+                    <li>Sistemas de **Control de Acceso** para oficinas, almacenes y residencias.</li>
+                    <li>Integración de **Alarmas** contra intrusión y monitoreo.</li>
+                    <li>Mantenimiento y soporte técnico para todos los sistemas instalados.</li>
+                    <li>Diseño de soluciones personalizadas según tus necesidades de seguridad.</li>
+                </ul>
+                <p>
+                    Ofrecemos tecnología de punta para que tengas la tranquilidad que mereces.
+                    La seguridad de tus bienes y seres queridos es nuestra prioridad.
+                </p>
+                <p>
+                    ¡Protégete hoy! <a href="/contactanos">Llámanos</a> para una evaluación de seguridad gratuita.
+                </p>
+            </section>
+
+            {/* --- INICIO: SECCIÓN DE GALERÍA DE IMÁGENES DE COMPRESORES --- */}
+            <section class="gallery-section">
+                <h2>Trabajos de Seguridad Electronica Realizados</h2>
+                <div class="image-grid">
+                    {/*
+                        Asegúrate de que estas rutas sean CORRECTAS.
+                        Deben apuntar a tus imágenes dentro de 'public/Imagenes/compresores/'
+                    */}
+                    <img src="/Imagenes/seguridad-electronica/camara.jpeg" alt="Mantenimiento de compresor industrial" loading="lazy" />
+                    <img src="/Imagenes/seguridad-electronica/alarma.jpeg" alt="Reparación de unidad de compresor" loading="lazy" />
+                    <img src="/Imagenes/seguridad-electronica/chapa.jpeg" alt="Compresor de aire en funcionamiento" loading="lazy" />
+                    {/* Añade más etiquetas <img> aquí para más imágenes de compresores */}
+                </div>
+            </section>
+            {/* --- FIN: SECCIÓN DE GALERÍA DE IMÁGENES DE SEGURIDAD-ELECTRONICA --- */}
+
+{/* ... (tu contenido de servicios y galería de imágenes) ... */}
+
+            {/* --- INICIO: SECCIÓN DE MARCAS QUE MANEJAMOS (CON LOGOS) --- */}
+            <section class="brands-section">
+                <h2>Marcas y Materiales que Manejamos</h2>
+                <div class="brands-list">
+                    {/*
+                        ¡IMPORTANTE!
+                        Asegúrate de que las rutas sean CORRECTAS para tus archivos de logo.
+                        Ejemplo: /Imagenes/marcas/logo-siemens.svg
+                    */}
+                    <img src="/Imagenes/marcas/1.jpeg" alt="Logo 1" loading="lazy" />
+                    <img src="/Imagenes/marcas/2.png" alt="Logo 2" loading="lazy" />
+                    <img src="/Imagenes/marcas/3.png" alt="Logo 3" loading="lazy" />
+                    <img src="/Imagenes/marcas/4.png" alt="Logo 4" loading="lazy" />
+                    <img src="/Imagenes/marcas/5.png" alt="Logo 5" loading="lazy" />
+                    <img src="/Imagenes/marcas/6.png" alt="Logo 6" loading="lazy" />
+                    <img src="/Imagenes/marcas/7.png" alt="Logo 7" loading="lazy" />
+                    <img src="/Imagenes/marcas/8.png" alt="Logo 8" loading="lazy" />
+                    <img src="/Imagenes/marcas/9.png" alt="Logo 9" loading="lazy" />
+                </div>
+            </section>
+            {/* --- FIN: SECCIÓN DE MARCAS QUE MANEJAMOS (CON LOGOS) --- */}
+
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Estilos existentes para la página (section, h1, h2, ul, a) */
+    section {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        color: var(--color-rojo-acento); /* Usa el rojo para los títulos */
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 20px;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    section a {
+        color: var(--color-turquesa-principal);
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    section a:hover {
+        color: var(--color-rojo-acento);
+    }
+
+    /* --- INICIO: ESTILOS PARA GALERÍA DE IMÁGENES (AJUSTADOS) --- */
+    .gallery-section h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+        gap: 1rem; /* Espacio entre imágenes */
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: 180px; /* Altura fija para el contenedor visual de la imagen */
+        object-fit: contain; /* <-- ¡CLAVE! Asegura que la imagen se vea COMPLETA */
+        background-color: #f0f0f0; /* Fondo claro para rellenar el espacio si la imagen no es cuadrada */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.03); /* Efecto de zoom suave al pasar el ratón */
+    }
+    /* --- FIN: ESTILOS PARA GALERÍA DE IMÁGENES --- */
+
+    /* --- INICIO: ESTILOS PARA SECCIÓN DE MARCAS (AJUSTADOS) --- */
+    .brands-section h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .brands-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center; /* Centra los logos verticalmente */
+        gap: 1.5rem; /* Espacio entre los logos (ligeramente ajustado) */
+        padding: 1rem;
+    }
+
+    .brands-list img {
+        max-height: 40px; /* <-- ¡CLAVE! Altura máxima para los logos (reducida de 50px a 40px) */
+        width: auto; /* Ancho automático para mantener la proporción */
+        object-fit: contain; /* Asegura que el logo se vea completo */
+        filter: grayscale(100%); /* Opcional: convierte los logos a escala de grises */
+        opacity: 0.7; /* Opcional: los hace un poco más sutiles */
+        transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .brands-list img:hover {
+        filter: grayscale(0%); /* Opcional: los vuelve a su color original al pasar el ratón */
+        opacity: 1; /* Opcional: los hace completamente visibles al pasar el ratón */
+    }
+    /* --- FIN: ESTILOS PARA SECCIÓN DE MARCAS --- */
+</style>
