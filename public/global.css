@@ -1,16 +1,30 @@
+/*
+ * The CSS in this style tag is based off of Bear Blog's default CSS.
+ * https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+ * License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
 /* public/global.css */
 
 :root {
-    /* Colores de tu paleta */
-    --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa (fondo) */
-    --color-rojo-acento: #FF0000;      /* Rojo puro para acentos y la 'C' del logo */
-    --color-azul-oscuro: #0A192F;      /* Azul muy oscuro (originalmente para fondo, ahora no usado en body) */
-    --color-blanco: rgba(255, 255, 255, 0.85); /* Blanco con 85% de opacidad (para fondos de secciones) */
+    /* Tus colores principales */
+    --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa */
+    --color-blanco: rgba(255, 255, 255, 0.55); /* Blanco con 55% de opacidad (para fondos de secciones) */
+    --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
 
-    /* --- ¡NUEVAS VARIABLES DE COLOR PARA TEXTO! --- */
-    --color-azul-rey: #4169E1; /* Azul Rey vibrante para texto sobre fondo turquesa */
-    --color-texto-oscuro: #333333;      /* Un gris oscuro para texto general si el fondo es claro (en secciones blancas) */
-    /* --- FIN NUEVAS VARIABLES --- */
+    /* Colores de texto (ajusta según el fondo) */
+    --color-texto-claro: var(--color-blanco); /* Esto ya no se usará directamente para el texto principal */
+    --color-texto-oscuro: #333333; /* Un gris oscuro para texto general si el fondo es claro */
+
+    /* --- ¡NUEVA VARIABLE DE COLOR PARA TEXTO PRINCIPAL! --- */
+    --color-azul-rey-resaltado: #4169E1; /* Azul Rey estándar, vibrante */
+    /* Si quieres un azul aún más "eléctrico" o brillante, puedes probar con:
+       #0000FF (Azul puro)
+       #00FFFF (Cyan)
+       #00BFFF (DeepSkyBlue)
+       #1E90FF (DodgerBlue)
+    */
+    /* --- FIN NUEVA VARIABLE --- */
 
     /* Otros colores de la plantilla que quizás quieras ajustar para que coincidan */
     --astro-gray-400: #bbbbbb;
@@ -18,32 +32,26 @@
     --astro-gray-700: #333333;
     --astro-gray-900: #111111;
     --astro-code-bg: #f5f5f5; /* Color de fondo para bloques de código */
-
-    /* Fuentes */
-    --font-principal: 'Inter', sans-serif; /* Asegúrate de que esta fuente esté disponible o cámbiala */
 }
 
 /* Estilos generales del cuerpo */
-html {
-    background-color: var(--color-turquesa-principal); /* <-- ¡FONDO TURQUESA AQUÍ! */
+html { /* Aplicamos al html para que ocupe toda la ventana */
+    background-color: var(--color-turquesa-principal); /* Fondo principal turquesa */
     overflow-x: hidden; /* Evita el scroll horizontal por las curvas */
 }
 
 body {
-    font-family: var(--font-principal);
+    font-family: system-ui, sans-serif;
+    color: var(--color-azul-rey-resaltado); /* <-- ¡CAMBIO CLAVE AQUÍ! Texto principal en Azul Rey */
     margin: 0;
     line-height: 1.6;
     min-height: 100vh; /* Asegura que el body ocupe toda la altura */
     display: flex;
     flex-direction: column; /* Para que el footer se quede abajo */
-    position: relative; /* Necesario para las curvas y marca de agua */
-
-    /* --- ¡COLOR DE TEXTO AZUL REY AQUÍ! --- */
-    color: var(--color-azul-rey); /* Texto por defecto en Azul Rey */
-    /* --- FIN CAMBIO CLAVE --- */
+    position: relative; /* Necesario para las curvas y la marca de agua */
 }
 
-/* Estilos para la marca de agua */
+/* --- ¡CORRECCIÓN DE SINTAXIS! ESTA REGLA VA FUERA DEL BODY --- */
 .watermark-logo {
     position: fixed; /* Lo fija en la ventana, no hace scroll */
     top: 50%;
@@ -60,6 +68,18 @@ body {
     opacity: 0.05; /* La opacidad sutil que quieres */
     pointer-events: none; /* Crucial: permite hacer clic a través del logo */
     z-index: -2; /* Envía el logo aún más al fondo que las curvas */
+}
+/* --- FIN CORRECCIÓN DE SINTAXIS --- */
+
+/* Puedes empezar a aplicar estos colores a otros elementos */
+a {
+    color: var(--color-rojo-acento); /* <-- ¡CAMBIO! Enlaces en rojo por defecto */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-turquesa-principal); /* <-- ¡CAMBIO! Un efecto hover turquesa para los enlaces */
 }
 
 /* Estilos para las líneas curvas rojas */
@@ -100,15 +120,16 @@ main {
     padding-right: 1rem;
 }
 
-/* Puedes empezar a aplicar estos colores a otros elementos */
-a {
-    color: var(--color-rojo-acento); /* <-- ¡CAMBIO! Enlaces en rojo por defecto */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--color-turquesa-principal); /* <-- ¡CAMBIO! Un efecto hover turquesa para los enlaces */
+/* Eliminar estilos de la plantilla que no necesitamos para nuestro diseño */
+.link-button {
+    /* Si ves algo así en tu Header, lo quitarás o lo sobrescribirás */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
 }
 
 /* Estilos para secciones de contenido (fondo blanco transparente) */
@@ -142,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    /* Por defecto, estos tomarán el color del body (Azul Rey) */
+    /* Por defecto, estos tomarán el color del body (Azul Rey resaltado) */
 }
 
 h1 {
