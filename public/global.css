@@ -1,20 +1,16 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
-/* src/styles/global.css */
+/* public/global.css */
 
 :root {
-    /* Tus colores principales */
+    /* Colores de tu paleta */
     --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa */
-    --color-blanco: rgba(255, 255, 255, 0.55); /* <-- ¡CAMBIO AQUÍ! Blanco con 85% de opacidad */
-    --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
+    --color-rojo-acento: #FF0000;      /* Rojo puro para acentos y la 'C' del logo */
+    --color-azul-oscuro: #0A192F;      /* Azul muy oscuro, casi negro (para el fondo del body) */
+    --color-blanco: rgba(255, 255, 255, 0.85); /* Blanco con 85% de opacidad (para fondos de secciones) */
 
-    /* Colores de texto (ajusta según el fondo) */
-    --color-texto-claro: var(--color-blanco);
-    --color-texto-oscuro: #333333; /* Un gris oscuro para texto general si el fondo es claro */
+    /* --- ¡NUEVAS VARIABLES DE COLOR PARA TEXTO! --- */
+    --color-azul-brillante-texto: #87CEFA; /* Azul cielo claro, vibrante para texto sobre fondo oscuro */
+    --color-texto-oscuro: #333333;      /* Un gris oscuro para texto general si el fondo es claro (en secciones blancas) */
+    /* --- FIN NUEVAS VARIABLES --- */
 
     /* Otros colores de la plantilla que quizás quieras ajustar para que coincidan */
     --astro-gray-400: #bbbbbb;
@@ -22,52 +18,49 @@
     --astro-gray-700: #333333;
     --astro-gray-900: #111111;
     --astro-code-bg: #f5f5f5; /* Color de fondo para bloques de código */
+
+    /* Fuentes */
+    --font-principal: 'Inter', sans-serif; /* Asegúrate de que esta fuente esté disponible o cámbiala */
 }
 
 /* Estilos generales del cuerpo */
-html { /* Aplicamos al html para que ocupe toda la ventana */
-    background-color: var(--color-turquesa-principal); /* Fondo principal turquesa */
+html {
+    /* El background-color principal ahora lo ponemos en el body */
     overflow-x: hidden; /* Evita el scroll horizontal por las curvas */
 }
 
 body {
-    font-family: system-ui, sans-serif;
-    color: var(--color-texto-claro); /* Texto principal en blanco */
+    font-family: var(--font-principal);
     margin: 0;
     line-height: 1.6;
     min-height: 100vh; /* Asegura que el body ocupe toda la altura */
     display: flex;
     flex-direction: column; /* Para que el footer se quede abajo */
+    position: relative; /* Necesario para las curvas y marca de agua */
 
-	/* --- AÑADE ESTE NUEVO ESTILO AL FINAL DE GLOBAL.CSS --- */
+    /* --- ¡CAMBIOS CLAVE AQUÍ! --- */
+    background-color: var(--color-azul-oscuro); /* Fondo principal azul oscuro */
+    color: var(--color-azul-brillante-texto); /* Color de texto por defecto: azul brillante */
+    /* --- FIN CAMBIOS CLAVE --- */
+}
+
+/* Estilos para la marca de agua (¡AHORA FUERA DEL BODY!) */
 .watermark-logo {
     position: fixed; /* Lo fija en la ventana, no hace scroll */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el logo */
+    width: 80vw; /* Ajusta el tamaño de la marca de agua */
+    height: 80vw;
+    max-width: 800px; /* Tamaño máximo para pantallas grandes */
+    max-height: 800px;
     background-image: url('/logo-scj.png'); /* Asegúrate de la EXTENSIÓN correcta (.png o .svg) */
     background-repeat: no-repeat;
     background-position: center center; /* Centra el logo */
-    background-size: 50%; /* Puedes ajustar el tamaño (ej. 'contain', '80%', '100vw', etc.) */
-    opacity: 0.3; /* La opacidad sutil que quieres */
+    background-size: contain; /* Ajusta el tamaño para que quepa completamente */
+    opacity: 0.05; /* La opacidad sutil que quieres */
     pointer-events: none; /* Crucial: permite hacer clic a través del logo */
     z-index: -2; /* Envía el logo aún más al fondo que las curvas */
-}
-}
-
-/* ...el resto de tus estilos (a, body::before, body::after, main, etc.) permanecen igual... */
-
-
-
-/* Puedes empezar a aplicar estos colores a otros elementos */
-a {
-    color: var(--color-blanco); /* Enlaces en blanco por defecto */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-}
-
-a:hover {
-    color: var(--color-rojo-acento); /* Un efecto hover rojo para los enlaces */
 }
 
 /* Estilos para las líneas curvas rojas */
@@ -108,14 +101,78 @@ main {
     padding-right: 1rem;
 }
 
-/* Eliminar estilos de la plantilla que no necesitamos para nuestro diseño */
-.link-button {
-    /* Si ves algo así en tu Header, lo quitarás o lo sobrescribirás */
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: inherit;
-    color: inherit;
-    cursor: pointer;
+/* Puedes empezar a aplicar estos colores a otros elementos */
+a {
+    color: var(--color-turquesa-principal); /* Enlaces en turquesa por defecto */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-rojo-acento); /* Un efecto hover rojo para los enlaces */
+}
+
+/* Estilos para secciones de contenido (fondo blanco transparente) */
+section {
+    background-color: var(--color-blanco); /* Fondo blanco transparente */
+    color: var(--color-texto-oscuro); /* Texto oscuro en secciones claras (para contraste) */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para texto en secciones blancas si es necesario */
+section h1, section h2, section h3 {
+    color: var(--color-rojo-acento); /* Títulos en rojo en secciones blancas */
+}
+
+section a {
+    color: var(--color-turquesa-principal);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+section a:hover {
+    color: var(--color-rojo-acento);
+}
+
+/* Estilos para los encabezados generales (fuera de las secciones blancas) */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    /* Por defecto, estos tomarán el color del body (azul brillante) */
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
 }
