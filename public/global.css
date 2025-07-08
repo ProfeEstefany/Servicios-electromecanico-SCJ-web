@@ -59,7 +59,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center; /* Centra el logo */
     background-size: contain; /* Ajusta el tamaño para que quepa completamente */
-    opacity: 0.05; /* La opacidad sutil que quieres */
+    opacity: 0.10; /* La opacidad sutil que quieres */
     pointer-events: none; /* Crucial: permite hacer clic a través del logo */
     z-index: -2; /* Envía el logo aún más al fondo que las curvas */
 }
