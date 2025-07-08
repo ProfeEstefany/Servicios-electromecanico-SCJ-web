@@ -9,7 +9,7 @@
 :root {
     /* Tus colores principales */
     --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa */
-    --color-blanco: rgba(255, 255, 255, 0.55); /* Blanco con 55% de opacidad (para fondos de secciones) */
+    --color-blanco: rgba(255, 255, 255, 0.85); /* Blanco con 55% de opacidad (para fondos de secciones) */
     --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
 
     /* Colores de texto (ajusta según el fondo) */
