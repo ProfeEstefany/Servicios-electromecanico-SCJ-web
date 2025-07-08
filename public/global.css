@@ -13,17 +13,11 @@
     --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
 
     /* Colores de texto (ajusta según el fondo) */
-    --color-texto-claro: var(--color-blanco); /* Esto ya no se usará directamente para el texto principal */
-    --color-texto-oscuro: #333333; /* Un gris oscuro para texto general si el fondo es claro */
+    /* --color-texto-claro: var(--color-blanco); */ /* Esta variable ya no se usará directamente para el texto principal */
+    --color-texto-oscuro: #333333; /* Un gris oscuro para texto general si el fondo es claro (en secciones blancas) */
 
     /* --- ¡NUEVA VARIABLE DE COLOR PARA TEXTO PRINCIPAL! --- */
-    --color-azul-rey-resaltado: #4169E1; /* Azul Rey estándar, vibrante */
-    /* Si quieres un azul aún más "eléctrico" o brillante, puedes probar con:
-       #0000FF (Azul puro)
-       #00FFFF (Cyan)
-       #00BFFF (DeepSkyBlue)
-       #1E90FF (DodgerBlue)
-    */
+    --color-azul-rey-resaltado: #4169E1; /* Azul Rey vibrante para texto sobre fondo turquesa */
     /* --- FIN NUEVA VARIABLE --- */
 
     /* Otros colores de la plantilla que quizás quieras ajustar para que coincidan */
@@ -73,13 +67,12 @@ body {
 
 /* Puedes empezar a aplicar estos colores a otros elementos */
 a {
-    color: var(--color-rojo-acento); /* <-- ¡CAMBIO! Enlaces en rojo por defecto */
+    color: var(--color-blanco); /* Enlaces en blanco por defecto */
     text-decoration: none; /* Quita el subrayado de los enlaces */
-    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-turquesa-principal); /* <-- ¡CAMBIO! Un efecto hover turquesa para los enlaces */
+    color: var(--color-rojo-acento); /* Un efecto hover rojo para los enlaces */
 }
 
 /* Estilos para las líneas curvas rojas */
