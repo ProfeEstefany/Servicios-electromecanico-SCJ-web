@@ -8,8 +8,8 @@
 
 :root {
     /* Tus colores principales */
-    --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa */
-    --color-blanco: rgba(255, 255, 255, 0.85); /* Blanco con 55% de opacidad (para fondos de secciones) */
+    --color-turquesa-principal: #3fb4eb; /* Un buen tono de azul turquesa */
+    --color-blanco: rgba(255, 255, 255, 0.678); /* Blanco con 55% de opacidad (para fondos de secciones) */
     --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
 
     /* Colores de texto (ajusta según el fondo) */
@@ -17,7 +17,7 @@
     --color-texto-oscuro: #333333; /* Un gris oscuro para texto general si el fondo es claro (en secciones blancas) */
 
     /* --- ¡NUEVA VARIABLE DE COLOR PARA TEXTO PRINCIPAL! --- */
-    --color-azul-rey-resaltado: #4169E1; /* Azul Rey vibrante para texto sobre fondo turquesa */
+    --color-azul-rey-resaltado: #ffffff; /* Azul Rey vibrante para texto sobre fondo turquesa */
     /* --- FIN NUEVA VARIABLE --- */
 
     /* Otros colores de la plantilla que quizás quieras ajustar para que coincidan */
