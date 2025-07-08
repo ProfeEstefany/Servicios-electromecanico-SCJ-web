@@ -9,7 +9,7 @@
 :root {
     /* Tus colores principales */
     --color-turquesa-principal: #3fb4eb; /* Un buen tono de azul turquesa */
-    --color-blanco: rgba(255, 255, 255, 0.678); /* Blanco con 55% de opacidad (para fondos de secciones) */
+    --color-blanco: rgb(255, 255, 255); /* Blanco con 55% de opacidad (para fondos de secciones) */
     --color-rojo-acento: #FF0000; /* Rojo puro para acentos y la 'C' del logo */
 
     /* Colores de texto (ajusta según el fondo) */
@@ -21,7 +21,7 @@
     /* --- FIN NUEVA VARIABLE --- */
 
     /* Otros colores de la plantilla que quizás quieras ajustar para que coincidan */
-    --astro-gray-400: #bbbbbb;
+    --astro-gray-400: #fff2f2;
     --astro-gray-600: #666666;
     --astro-gray-700: #333333;
     --astro-gray-900: #111111;
@@ -59,7 +59,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center; /* Centra el logo */
     background-size: contain; /* Ajusta el tamaño para que quepa completamente */
-    opacity: 0.10; /* La opacidad sutil que quieres */
+    opacity: 0.15; /* La opacidad sutil que quieres */
     pointer-events: none; /* Crucial: permite hacer clic a través del logo */
     z-index: -2; /* Envía el logo aún más al fondo que las curvas */
 }
