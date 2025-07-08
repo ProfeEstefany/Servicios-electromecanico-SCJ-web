@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BrandLogos from '../components/BrandLogos.astro'; // <-- NUEVO IMPORT
+import WhatsAppButton from '../components/WhatsAppButton.astro'; // <-- AÑADE ESTA LÍNEA
 // No necesitamos SITE_TITLE ni SITE_DESCRIPTION en esta página,
 // ya que usamos pageTitle y pageDescription directamente.
 // Si los quieres mantener, asegúrate de que 'consts' exista y los exporte.
@@ -62,6 +63,7 @@ const pageDescription = "Envíanos los detalles de tu proyecto o servicio requer
             
         </main>
         <Footer />
+        <WhatsAppButton /> {/* <-- AÑADE ESTA LÍNEA AQUÍ */}
     </body>
 </html>
 

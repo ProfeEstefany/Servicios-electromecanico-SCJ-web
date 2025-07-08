@@ -1,0 +1,113 @@
+---
+// src/components/WhatsAppButton.astro
+// Componente para un botón flotante de WhatsApp
+
+// Tu número de WhatsApp (solo dígitos, incluyendo el código de país)
+const whatsappNumber = "526647112923"; // Ejemplo: +52 (664) 711-29-23
+
+// Mensaje predeterminado que se enviará al hacer clic en el botón
+const prefilledMessage = "Hola, me interesa un servicio de SCJ. ¿Podrías darme más información?";
+
+// Codifica el mensaje para la URL
+const encodedMessage = encodeURIComponent(prefilledMessage);
+
+// Construye la URL de WhatsApp
+const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
+---
+
+<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+    <span class="whatsapp-tooltip">Mándame WhatsApp</span>
+</a>
+
+<style>
+    /* Estilos para el botón flotante de WhatsApp */
+    .whatsapp-float {
+        position: fixed; /* Hace que el botón flote */
+        bottom: 20px;    /* Distancia desde la parte inferior */
+        right: 20px;     /* Distancia desde la derecha */
+        width: 60px;     /* Ancho del botón */
+        height: 60px;    /* Altura del botón */
+        background-color: #25D366; /* Color verde de WhatsApp */
+        color: white;
+        border-radius: 50%; /* Lo hace circular */
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para que destaque */
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none; /* Quita el subrayado del enlace */
+        transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1); /* Efecto de zoom al pasar el ratón */
+    }
+
+    .whatsapp-icon {
+        width: 35px; /* Tamaño del icono dentro del botón */
+        height: 35px;
+        /* Opcional: si tu icono es negro y quieres que se vea blanco */
+        filter: brightness(0) invert(1);
+    }
+
+    /* Estilos para el tooltip (el letrero al pasar el ratón) */
+    .whatsapp-tooltip {
+        visibility: hidden; /* Oculto por defecto */
+        width: 140px;
+        background-color: var(--color-texto-oscuro); /* Fondo oscuro para el tooltip */
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        right: 105%; /* Posiciona el tooltip a la izquierda del botón */
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0; /* Transparente por defecto */
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        font-size: 0.9em;
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    }
+
+    /* Flecha del tooltip */
+    .whatsapp-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%; /* Posiciona la flecha a la derecha del tooltip */
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--color-texto-oscuro);
+    }
+
+    /* Mostrar el tooltip al pasar el ratón sobre el botón */
+    .whatsapp-float:hover .whatsapp-tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* Media query para ajustar el tamaño y posición en móviles */
+    @media (max-width: 768px) {
+        .whatsapp-float {
+            width: 50px;
+            height: 50px;
+            bottom: 15px;
+            right: 15px;
+            font-size: 24px;
+        }
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+        }
+        .whatsapp-tooltip {
+            width: 120px; /* Ajusta el ancho del tooltip en móviles */
+            right: 100%; /* Ajusta la posición del tooltip */
+            font-size: 0.8em;
+        }
+    }
+</style>

@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro'; // <-- AÑADE ESTA LÍNEA
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 // Puedes importar la descripción específica para esta página
@@ -86,6 +87,7 @@ const pageDescription = "Servicios expertos de embobinados para motores eléctri
 
         </main>
         <Footer />
+        <WhatsAppButton /> {/* <-- AÑADE ESTA LÍNEA AQUÍ */}
     </body>
 </html>
 

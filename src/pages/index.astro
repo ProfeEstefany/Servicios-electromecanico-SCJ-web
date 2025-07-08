@@ -4,6 +4,7 @@
 import BaseHead from '../components/BaseHead.astro'; // Importa el componente BaseHead
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro'; // <-- AÑADE ESTA LÍNEA
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 // Título y descripción específicos para la página de inicio
@@ -73,6 +74,7 @@ const pageDescription = "Bienvenido a Servicios Electromecánicos SCJ. Ofrecemos
 
         {/* El componente de pie de página */}
         <Footer />
+        <WhatsAppButton /> {/* <-- AÑADE ESTA LÍNEA AQUÍ */}
     </body>
 </html>
 
