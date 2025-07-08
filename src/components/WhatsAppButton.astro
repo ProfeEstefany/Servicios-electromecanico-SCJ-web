@@ -12,11 +12,11 @@ const prefilledMessage = "Hola, me interesa un servicio de SCJ. ¿Podrías darme
 const encodedMessage = encodeURIComponent(prefilledMessage);
 
 // Construye la URL de WhatsApp
-const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 ---
 
 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="whatsapp-float">
-    <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+    <img src="/Imagenes/iconos/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon" />
     <span class="whatsapp-tooltip">Mándame WhatsApp</span>
 </a>
 
@@ -25,8 +25,7 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
     .whatsapp-float {
         position: fixed; /* Hace que el botón flote */
         bottom: 20px;    /* Distancia desde la parte inferior */
-        left: 20px;      /* <-- ¡CAMBIO! Distancia desde la izquierda */
-        /* Eliminamos 'right' para moverlo a la izquierda */
+        left: 20px;      /* Distancia desde la izquierda */
         width: 60px;     /* Ancho del botón */
         height: 60px;    /* Altura del botón */
         background-color: #25D366; /* Color verde de WhatsApp */
@@ -51,12 +50,10 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
         width: 35px; /* Tamaño del icono dentro del botón */
         height: 35px;
         /*
-            ¡¡¡IMPORTANTE SOBRE LA VISIBILIDAD DE LA IMAGEN!!!
-            Si tu icono de WhatsApp es negro, la línea 'filter: brightness(0) invert(1);'
-            lo convierte a blanco. Si tu icono ya es blanco o a color,
-            o si se ve mal, puedes ELIMINAR esta línea.
+            Si tu icono de WhatsApp es negro y quieres que se vea blanco,
+            descomenta la siguiente línea:
         */
-        /* filter: brightness(0) invert(1); */ /* Comentado para que no afecte si tu icono ya es blanco/color */
+        /* filter: brightness(0) invert(1); */
     }
 
     /* Estilos para el tooltip (el letrero al pasar el ratón) */
@@ -64,13 +61,17 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
         visibility: hidden; /* Oculto por defecto */
         width: 140px;
         background-color: var(--color-texto-oscuro); /* Fondo oscuro para el tooltip */
-        color: #fff;
+        /* --- ¡CAMBIOS AQUÍ! --- */
+        color: #00FF00; /* Color verde brillante para el texto */
+        font-weight: bold; /* Texto en negrita */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Sombra para que resalte */
+        /* --- FIN CAMBIOS --- */
         text-align: center;
         border-radius: 6px;
         padding: 5px 0;
         position: absolute;
         z-index: 1;
-        left: 105%; /* <-- ¡CAMBIO! Posiciona el tooltip a la DERECHA del botón */
+        left: 105%; /* Posiciona el tooltip a la DERECHA del botón */
         top: 50%;
         transform: translateY(-50%);
         opacity: 0; /* Transparente por defecto */
@@ -84,11 +85,11 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
         content: "";
         position: absolute;
         top: 50%;
-        right: 100%; /* <-- ¡CAMBIO! Posiciona la flecha a la IZQUIERDA del tooltip */
+        right: 100%; /* Posiciona la flecha a la IZQUIERDA del tooltip */
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent var(--color-texto-oscuro) transparent transparent; /* <-- ¡CAMBIO! Flecha apunta a la izquierda */
+        border-color: transparent var(--color-texto-oscuro) transparent transparent; /* Flecha apunta a la izquierda */
     }
 
     /* Mostrar el tooltip al pasar el ratón sobre el botón */
@@ -103,7 +104,7 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
             width: 50px;
             height: 50px;
             bottom: 15px;
-            left: 15px; /* <-- ¡CAMBIO! En móviles también a la izquierda */
+            left: 15px; /* En móviles también a la izquierda */
             right: auto; /* Asegura que no tenga 'right' */
             font-size: 24px;
         }
@@ -113,7 +114,7 @@ const whatsappUrl = `https://wa.me/${526647112923}?text=${encodedMessage}`;
         }
         .whatsapp-tooltip {
             width: 120px; /* Ajusta el ancho del tooltip en móviles */
-            left: 100%; /* <-- ¡CAMBIO! Ajusta la posición del tooltip en móviles */
+            left: 100%; /* Ajusta la posición del tooltip en móviles */
             right: auto; /* Asegura que no tenga 'right' */
             font-size: 0.8em;
         }
