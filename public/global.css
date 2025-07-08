@@ -2,13 +2,13 @@
 
 :root {
     /* Colores de tu paleta */
-    --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa */
+    --color-turquesa-principal: #20B2AA; /* Un buen tono de azul turquesa (fondo) */
     --color-rojo-acento: #FF0000;      /* Rojo puro para acentos y la 'C' del logo */
-    --color-azul-oscuro: #0A192F;      /* Azul muy oscuro, casi negro (para el fondo del body) */
+    --color-azul-oscuro: #0A192F;      /* Azul muy oscuro (originalmente para fondo, ahora no usado en body) */
     --color-blanco: rgba(255, 255, 255, 0.85); /* Blanco con 85% de opacidad (para fondos de secciones) */
 
     /* --- ¡NUEVAS VARIABLES DE COLOR PARA TEXTO! --- */
-    --color-azul-brillante-texto: #87CEFA; /* Azul cielo claro, vibrante para texto sobre fondo oscuro */
+    --color-azul-rey: #4169E1; /* Azul Rey vibrante para texto sobre fondo turquesa */
     --color-texto-oscuro: #333333;      /* Un gris oscuro para texto general si el fondo es claro (en secciones blancas) */
     /* --- FIN NUEVAS VARIABLES --- */
 
@@ -25,7 +25,7 @@
 
 /* Estilos generales del cuerpo */
 html {
-    /* El background-color principal ahora lo ponemos en el body */
+    background-color: var(--color-turquesa-principal); /* <-- ¡FONDO TURQUESA AQUÍ! */
     overflow-x: hidden; /* Evita el scroll horizontal por las curvas */
 }
 
@@ -38,13 +38,12 @@ body {
     flex-direction: column; /* Para que el footer se quede abajo */
     position: relative; /* Necesario para las curvas y marca de agua */
 
-    /* --- ¡CAMBIOS CLAVE AQUÍ! --- */
-    background-color: var(--color-azul-oscuro); /* Fondo principal azul oscuro */
-    color: var(--color-azul-brillante-texto); /* Color de texto por defecto: azul brillante */
-    /* --- FIN CAMBIOS CLAVE --- */
+    /* --- ¡COLOR DE TEXTO AZUL REY AQUÍ! --- */
+    color: var(--color-azul-rey); /* Texto por defecto en Azul Rey */
+    /* --- FIN CAMBIO CLAVE --- */
 }
 
-/* Estilos para la marca de agua (¡AHORA FUERA DEL BODY!) */
+/* Estilos para la marca de agua */
 .watermark-logo {
     position: fixed; /* Lo fija en la ventana, no hace scroll */
     top: 50%;
@@ -103,13 +102,13 @@ main {
 
 /* Puedes empezar a aplicar estos colores a otros elementos */
 a {
-    color: var(--color-turquesa-principal); /* Enlaces en turquesa por defecto */
+    color: var(--color-rojo-acento); /* <-- ¡CAMBIO! Enlaces en rojo por defecto */
     text-decoration: none; /* Quita el subrayado de los enlaces */
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-rojo-acento); /* Un efecto hover rojo para los enlaces */
+    color: var(--color-turquesa-principal); /* <-- ¡CAMBIO! Un efecto hover turquesa para los enlaces */
 }
 
 /* Estilos para secciones de contenido (fondo blanco transparente) */
@@ -143,7 +142,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    /* Por defecto, estos tomarán el color del body (azul brillante) */
+    /* Por defecto, estos tomarán el color del body (Azul Rey) */
 }
 
 h1 {
