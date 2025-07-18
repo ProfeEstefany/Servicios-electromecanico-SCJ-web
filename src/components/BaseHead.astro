@@ -17,16 +17,15 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="description" content={description} />
 
-{/* --- INICIO: CÓDIGO DE VERIFICACIÓN DE GOOGLE SEARCH CONSOLE --- */}
-{/* Esta es la ÚNICA etiqueta de verificación. Asegúrate de que el 'content' sea tu código real. */}
+{/* --- CÓDIGO DE VERIFICACIÓN DE GOOGLE SEARCH CONSOLE --- */}
 <meta name="google-site-verification" content="ViZoA1X0KxQKG785LJEiFlJa2iHkQk4yv76I-iLuPyA" />
-{/* --- FIN: CÓDIGO DE VERIFICACIÓN DE GOOGLE SEARCH CONSOLE --- */}
+{/* --- FIN CÓDIGO DE VERIFICACIÓN --- */}
 
-{/*
-    ¡¡¡ESTA LÍNEA ES CRUCIAL PARA TUS ESTILOS!!!
-    Asegúrate de que esté presente y sea exactamente así.
-    Enlaza tu hoja de estilos global ubicada en la raíz de la carpeta 'public'.
-*/}
+{/* --- INICIO: META ETIQUETA PARA NOMBRE DE SITIO (PARA REDES SOCIALES Y POSIBLEMENTE GOOGLE) --- */}
+<meta property="og:site_name" content="Servicios Electromecánicos SCJ" />
+{/* --- FIN: META ETIQUETA --- */}
+
+{/* Enlaza tu hoja de estilos global. ¡CRUCIAL para que el sitio tenga estilo! */}
 <link rel="stylesheet" href="/global.css" />
 
 {/* Aquí puedes añadir otras etiquetas meta, links a hojas de estilo adicionales, etc. */}
