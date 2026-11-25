@@ -2,12 +2,13 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import BrandLogos from '../components/BrandLogos.astro'; // <-- NUEVO IMPORT
-import WhatsAppButton from '../components/WhatsAppButton.astro'; // <-- AÑADE ESTA LÍNEA
+import BrandLogos from '../components/BrandLogos.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 const pageTitle = "Contáctanos";
-const pageDescription = "Contactanos SCJ es la solucion a tu problema";
+const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
+const prefilledMessage = encodeURIComponent("Hola, me interesa un servicio de SCJ. ¿Podrías darme más información?");
 ---
 
 <!doctype html>
@@ -26,24 +27,22 @@ const pageDescription = "Contactanos SCJ es la solucion a tu problema";
                 <h2>Información de Contacto</h2>
                 <p>Puedes comunicarte con nosotros a través de los siguientes medios:</p>
                 <ul>
-                    <li>**Teléfono:** <a href="tel:+526648759275">+52 (664) 875-92-75</a></li> {/* ¡CAMBIA ESTE NÚMERO! */}
-                    <li>**WhatsApp:** <a href="https://wa.me/526647112923" target="_blank" rel="noopener noreferrer">+52 (664) 711-29-23</a></li> {/* ¡CAMBIA ESTE NÚMERO! */}
-                    <li>**Email:** <a href="mailto:embobinados.scj@gmail.com">embobinados.scj@gmail.com</a></li> {/* ¡CAMBIA ESTE EMAIL! */}
-                    <li>**Dirección:** Tijuana, Baja California, México.</li> {/* ¡CAMBIA ESTA DIRECCIÓN! */}
-                    <li>**Horario de Atención:** Lunes a Viernes de 8:00 AM a 6:00 PM</li>
+                    <li><strong>WhatsApp 1:</strong> <a href={`https://wa.me{prefilledMessage}`} target="_blank" rel="noopener noreferrer">+52 (664) 711-29-23</a></li>
+                    <li><strong>WhatsApp 2:</strong> <a href={`https://wa.me{prefilledMessage}`} target="_blank" rel="noopener noreferrer">+52 (663) 197-55-90</a></li>
+                    <li><strong>WhatsApp 3:</strong> <a href={`https://wa.me{prefilledMessage}`} target="_blank" rel="noopener noreferrer">+52 (686) 247-57-83</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:embobinados.scj@gmail.com">embobinados.scj@gmail.com</a></li>
+                    <li><strong>Dirección:</strong> Tijuana, Baja California, México.</li>
+                    <li><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM</li>
                 </ul>
                 <p>
                     También puedes utilizar nuestro <a href="/cotizacion">formulario de cotización</a> para enviarnos los detalles de tu proyecto.
                 </p>
             </section>
 
-           {/* --- INSERTA EL COMPONENTE DE LOGOS DE MARCA AQUÍ --- */}
-            <BrandLogos title="Nuestros Socios y Marcas de Confianza" /> {/* Puedes personalizar el título */}
-            {/* --- FIN DEL COMPONENTE DE LOGOS DE MARCA --- */}
-            
-            </main>
+            <BrandLogos title="Nuestros Socios y Marcas de Confianza" />
+        </main>
         <Footer />
-        <WhatsAppButton /> {/* <-- AÑADE ESTA LÍNEA AQUÍ */}
+        <WhatsAppButton />
     </body>
 </html>
 
