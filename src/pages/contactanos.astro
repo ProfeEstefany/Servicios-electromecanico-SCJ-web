@@ -101,9 +101,11 @@ const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
                         </div>
 
                         <div class="form-group">
-                            <label for="fotos">Subir fotos del equipo (Opcional - Máximo 3 fotos)</label>
-                            <input type="file" id="fotos" name="Fotos Adjuntas" accept="image/*" multiple />
-                            <small id="fotos-aviso" class="file-hint">Puedes seleccionar hasta 3 imágenes (JPG, PNG).</small>
+                            <label>Subir fotos del equipo (Opcional - Máximo 3 fotos)</label>
+                            <input type="file" name="Foto 1" accept="image/*" style="margin-bottom: 0.45rem;" />
+                            <input type="file" name="Foto 2" accept="image/*" style="margin-bottom: 0.45rem;" />
+                            <input type="file" name="Foto 3" accept="image/*" />
+                            <small class="file-hint">Puedes adjuntar hasta 3 imágenes por separado (JPG, PNG).</small>
                         </div>
 
                         <div class="form-actions">
@@ -126,6 +128,7 @@ const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
         </main>
         <Footer />
         <WhatsAppButton />
+
         <script>
             const toggleBtn = document.getElementById('toggle-email-form');
             const closeBtn = document.getElementById('close-email-form');
