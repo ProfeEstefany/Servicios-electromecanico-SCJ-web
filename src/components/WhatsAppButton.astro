@@ -1,60 +1,66 @@
 ---
 // src/components/WhatsAppButton.astro - 3 Botones Directos de WhatsApp SCJ
-const prefilledMessage = "Hola, me interesa un servicio de SCJ. ¿Podrías darme más información?";
-const encodedMessage = encodeURIComponent(prefilledMessage);
-
-const whatsappLines = [
-    {
-        phone: "526647112923",
-        label: "WhatsApp 1: (664) 711-29-23"
-    },
-    {
-        phone: "526631975590",
-        label: "WhatsApp 2: (663) 197-55-90"
-    },
-    {
-        phone: "526862475783",
-        label: "WhatsApp 3: (686) 247-57-83"
-    }
-];
 ---
 
 <div class="whatsapp-stack">
-    {whatsappLines.map((item, index) => (
-        <a
-            href={`https://wa.me{item.phone}?text=${encodedMessage}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="whatsapp-float"
-            aria-label={item.label}
-        >
-            <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
-            <span class="wa-number-tag">{index + 1}</span>
-            <span class="whatsapp-tooltip">{item.label}</span>
-        </a>
-    ))}
+    <a
+        href="https://whatsapp.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        aria-label="WhatsApp 1: (664) 711-29-23"
+    >
+        <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+        <span class="wa-number-tag">1</span>
+        <span class="whatsapp-tooltip">WhatsApp 1: (664) 711-29-23</span>
+    </a>
+
+    <a
+        href="https://whatsapp.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        aria-label="WhatsApp 2: (663) 197-55-90"
+    >
+        <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+        <span class="wa-number-tag">2</span>
+        <span class="whatsapp-tooltip">WhatsApp 2: (663) 197-55-90</span>
+    </a>
+
+    <a
+        href="https://whatsapp.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        aria-label="WhatsApp 3: (686) 247-57-83"
+    >
+        <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+        <span class="wa-number-tag">3</span>
+        <span class="whatsapp-tooltip">WhatsApp 3: (686) 247-57-83</span>
+    </a>
 </div>
 
 <style>
     .whatsapp-stack {
-        position: fixed !important;
-        bottom: 24px !important;
-        left: 24px !important;
-        z-index: 99999 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
+        position: fixed;
+        bottom: 28px;
+        left: 24px;
+        z-index: 10005;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
 
     .whatsapp-float {
         position: relative;
-        width: 54px;
-        height: 54px;
+        width: 60px;
+        height: 60px;
         background-color: #25D366;
         color: white;
         border-radius: 50%;
-        border: 2px solid #ffffff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -63,25 +69,25 @@ const whatsappLines = [
     }
 
     .whatsapp-float:hover {
-        transform: scale(1.12);
+        transform: scale(1.1);
     }
 
     .whatsapp-icon {
-        width: 32px;
-        height: 32px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
     }
 
     .wa-number-tag {
         position: absolute;
-        top: -4px;
-        right: -4px;
+        top: -2px;
+        right: -2px;
         background-color: #d90429;
         color: #ffffff;
-        font-size: 0.72rem;
+        font-size: 0.75rem;
         font-weight: bold;
-        width: 19px;
-        height: 19px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -91,22 +97,21 @@ const whatsappLines = [
 
     .whatsapp-tooltip {
         visibility: hidden;
-        background-color: #111827;
+        background-color: var(--color-texto-oscuro);
         color: #00FF00;
         font-weight: bold;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-        border: 1px solid #25D366;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         text-align: center;
         border-radius: 6px;
-        padding: 6px 12px;
+        padding: 5px 12px;
         position: absolute;
-        z-index: 10006;
-        left: 118%;
+        z-index: 1;
+        left: 112%;
         top: 50%;
         transform: translateY(-50%);
         opacity: 0;
-        transition: opacity 0.25s ease, visibility 0.25s ease;
-        font-size: 0.88rem;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        font-size: 0.9rem;
         white-space: nowrap;
     }
 
@@ -118,7 +123,7 @@ const whatsappLines = [
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent #25D366 transparent transparent;
+        border-color: transparent var(--color-texto-oscuro) transparent transparent;
     }
 
     .whatsapp-float:hover .whatsapp-tooltip {
@@ -128,17 +133,22 @@ const whatsappLines = [
 
     @media (max-width: 768px) {
         .whatsapp-stack {
-            bottom: 16px;
-            left: 14px;
+            bottom: 15px;
+            left: 15px;
             gap: 8px;
         }
         .whatsapp-float {
-            width: 46px;
-            height: 46px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
         }
         .whatsapp-icon {
-            width: 26px;
-            height: 26px;
+            width: 30px;
+            height: 30px;
+        }
+        .whatsapp-tooltip {
+            left: 108%;
+            font-size: 0.8em;
         }
     }
 </style>
