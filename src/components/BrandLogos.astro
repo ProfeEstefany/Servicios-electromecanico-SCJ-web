@@ -1,0 +1,103 @@
+---
+// src/components/BrandLogos.astro
+interface Props {
+    // Permite personalizar el título de la sección de marcas
+    title?: string;
+}
+
+const { title = "Marcas con las que Trabajamos" } = Astro.props; // Título por defecto
+---
+
+<section class="brands-section">
+    <h2>{title}</h2>
+    <div class="brands-list">
+        {/*
+            ¡IMPORTANTE!
+            Aquí debes listar TODOS los logos de las marcas que manejas en tu negocio.
+            Asegúrate de que las rutas sean CORRECTAS para tus archivos de logo.
+            Ejemplo: /Imagenes/marcas/logo-siemens.svg
+            Coloca tus archivos de logos en public/Imagenes/marcas/
+        */}
+         <img src="/Imagenes/marcas/ABB.png" alt="ABB" loading="lazy" />
+                    <img src="/Imagenes/marcas/BALDOR.png" alt="Logo BALDOR" loading="lazy" />
+                    <img src="/Imagenes/marcas/GENERAL ELECTRIC.png" alt="Logo GENERAL ELECTRIC" loading="lazy" />
+                    <img src="/Imagenes/marcas/LEESON.png" alt="Logo LEESON" loading="lazy" />
+                    <img src="/Imagenes/marcas/SCHNEIDER ELECTRIC.png" alt="Logo SCHNEIDER ELECTRIC" loading="lazy" />
+                    <img src="/Imagenes/marcas/SEW EURODRAVE.png" alt="Logo SEW EURODRAVE" loading="lazy" />
+                    <img src="/Imagenes/marcas/SIEMENS.png" alt="Logo SIEMENS" loading="lazy" />
+                    <img src="/Imagenes/marcas/SQUARE D.png" alt="Logo SQUARE D" loading="lazy" />
+                    <img src="/Imagenes/marcas/TECO.png" alt="Logo TECO" loading="lazy" />
+                    <img src="/Imagenes/marcas/US MOTORS.png" alt="Logo US MOTORS" loading="lazy" />
+                    <img src="/Imagenes/marcas/WEG.png" alt="Logo WEG" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor1.png" alt="Logo 1" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor2.png" alt="Logo 2" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor3.png" alt="Logo 3" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor4.png" alt="Logo 4" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor5.png" alt="Logo 5" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor6.png" alt="Logo 6" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor7.png" alt="Logo 7" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor8.png" alt="Logo 8" loading="lazy" />
+                    <img src="/Imagenes/marcas/compresor9.jpg" alt="Logo 9" loading="lazy" />
+                    <img src="/Imagenes/marcas/1.jpeg" alt="Logo 1" loading="lazy" />
+                    <img src="/Imagenes/marcas/2.png" alt="Logo 2" loading="lazy" />
+                    <img src="/Imagenes/marcas/3.png" alt="Logo 3" loading="lazy" />
+                    <img src="/Imagenes/marcas/4.png" alt="Logo 4" loading="lazy" />
+                    <img src="/Imagenes/marcas/5.png" alt="Logo 5" loading="lazy" />
+                    <img src="/Imagenes/marcas/6.png" alt="Logo 6" loading="lazy" />
+                    <img src="/Imagenes/marcas/7.png" alt="Logo 7" loading="lazy" />
+                    <img src="/Imagenes/marcas/8.png" alt="Logo 8" loading="lazy" />
+                    <img src="/Imagenes/marcas/9.png" alt="Logo 9" loading="lazy" />
+                    {/* Añade aquí TODOS los logos de las marcas que manejas */}
+    </div>
+</section>
+
+<style>
+    /* Estilos para la sección de marcas */
+    .brands-section {
+        background-color: var(--color-blanco);
+        color: var(--color-texto-oscuro);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center; /* Centra el título */
+    }
+
+    .brands-section h2 {
+        color: var(--color-rojo-acento);
+        margin-bottom: 1.5rem;
+    }
+
+    .brands-list {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los logos se envuelvan en varias líneas */
+        justify-content: center; /* Centra los logos */
+        align-items: center; /* Centra los logos verticalmente */
+        gap: 1.5rem; /* Espacio entre los logos */
+        padding: 1rem;
+    }
+
+    .brands-list img {
+        max-height: 45px; /* Altura máxima para los logos. Ajusta si es necesario */
+        width: auto; /* Ancho automático para mantener la proporción */
+        object-fit: contain; /* Asegura que el logo se vea completo */
+        filter: grayscale(100%); /* Opcional: convierte los logos a escala de grises */
+        opacity: 0.7; /* Opcional: los hace un poco más sutiles */
+        transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .brands-list img:hover {
+        filter: grayscale(0%); /* Opcional: los vuelve a su color original al pasar el ratón */
+        opacity: 1; /* Opcional: los hace completamente visibles al pasar el ratón */
+    }
+
+    /* Media query para pantallas más pequeñas */
+    @media (max-width: 768px) {
+        .brands-list {
+            gap: 1rem; /* Reduce el espacio en móviles */
+        }
+        .brands-list img {
+            max-height: 35px; /* Reduce el tamaño de los logos en móviles */
+        }
+    }
+</style>

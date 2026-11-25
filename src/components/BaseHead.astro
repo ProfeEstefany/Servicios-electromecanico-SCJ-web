@@ -1,0 +1,31 @@
+---
+// src/components/BaseHead.astro
+// Este componente maneja el contenido que va DENTRO de la etiqueta <head> de tus páginas.
+// NO debe contener las etiquetas <head> y </head> por sí mismo.
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<meta name="description" content={description} />
+
+{/* --- CÓDIGO DE VERIFICACIÓN DE GOOGLE SEARCH CONSOLE --- */}
+<meta name="google-site-verification" content="ViZoA1X0KxQKG785LJEiFlJa2iHkQk4yv76I-iLuPyA" />
+{/* --- FIN CÓDIGO DE VERIFICACIÓN --- */}
+
+{/* --- INICIO: META ETIQUETA PARA NOMBRE DE SITIO (PARA REDES SOCIALES Y POSIBLEMENTE GOOGLE) --- */}
+<meta property="og:site_name" content="Servicios Electromecánicos SCJ" />
+{/* --- FIN: META ETIQUETA --- */}
+
+{/* Enlaza tu hoja de estilos global. ¡CRUCIAL para que el sitio tenga estilo! */}
+<link rel="stylesheet" href="/global.css" />
+
+{/* Aquí puedes añadir otras etiquetas meta, links a hojas de estilo adicionales, etc. */}

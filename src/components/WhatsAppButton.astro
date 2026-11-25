@@ -1,0 +1,146 @@
+---
+// src/components/WhatsAppButton.astro - 3 Botones Directos de WhatsApp SCJ
+const prefilledMessage = "Hola, me interesa un servicio de SCJ. ¿Podrías darme más información?";
+const encodedMessage = encodeURIComponent(prefilledMessage);
+
+const whatsappLines = [
+    {
+        phone: "526647112923",
+        label: "WhatsApp 1: (664) 711-29-23"
+    },
+    {
+        phone: "526631975590",
+        label: "WhatsApp 2: (663) 197-55-90"
+    },
+    {
+        phone: "526862475783",
+        label: "WhatsApp 3: (686) 247-57-83"
+    }
+];
+---
+
+<div class="whatsapp-stack">
+    {whatsappLines.map((item, index) => (
+        <a
+            href={`https://wa.me{item.phone}?text=${encodedMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-float"
+            aria-label={item.label}
+        >
+            <img src="/Imagenes/iconos/whatsApp.jpeg" alt="WhatsApp" class="whatsapp-icon" />
+            <span class="wa-number-tag">{index + 1}</span>
+            <span class="whatsapp-tooltip">{item.label}</span>
+        </a>
+    ))}
+</div>
+
+<style>
+       .whatsapp-stack {
+        position: fixed !important;
+        bottom: 24px !important;
+        left: 24px !important;
+        z-index: 99999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+
+    .whatsapp-float {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.12);
+    }
+
+    .whatsapp-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+
+    .wa-number-tag {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background-color: #d90429;
+        color: #ffffff;
+        font-size: 0.72rem;
+        font-weight: bold;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid #ffffff;
+    }
+
+    .whatsapp-tooltip {
+        visibility: hidden;
+        background-color: #111827;
+        color: #00FF00;
+        font-weight: bold;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        border: 1px solid #25D366;
+        text-align: center;
+        border-radius: 6px;
+        padding: 6px 12px;
+        position: absolute;
+        z-index: 10006;
+        left: 118%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .whatsapp-tooltip::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent #25D366 transparent transparent;
+    }
+
+    .whatsapp-float:hover .whatsapp-tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-stack {
+            bottom: 16px;
+            left: 14px;
+            gap: 8px;
+        }
+        .whatsapp-float {
+            width: 46px;
+            height: 46px;
+        }
+        .whatsapp-icon {
+            width: 26px;
+            height: 26px;
+        }
+    }
+</style>
+

@@ -1,0 +1,20 @@
+---
+// src/components/Footer.astro
+import ChristmasBottom from './ChristmasBottom.astro';
+---
+<ChristmasBottom />
+<footer>
+    <p>&copy; {new Date().getFullYear()} Servicios Electromecánicos SCJ. Todos los derechos reservados.</p>
+</footer>
+
+<style>
+    footer {
+        text-align: center;
+        padding: 2rem 2rem 5rem 2rem;
+        background-color: rgba(0, 0, 0, 0.25);
+        color: var(--color-blanco);
+        margin-top: auto;
+        position: relative;
+        z-index: 10;
+    }
+</style>

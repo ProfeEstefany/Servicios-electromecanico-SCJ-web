@@ -1,0 +1,430 @@
+---
+// src/components/Header.astro - Edición Navideña Chimenea y Nacimiento Caricatura
+---
+{/* MARCO DE CHIMENEA DE LADRILLOS CON ESCARCHA EN LAS 4 ORILLAS */}
+<div style="position:fixed;top:0;left:0;right:0;height:14px;z-index:9998;pointer-events:none;background:repeating-linear-gradient(90deg,#9b2226 0 36px,#e5e7eb 36px 40px);border-bottom:3px dashed #ffffff;box-shadow:0 2px 10px rgba(255,255,255,0.9);"></div>
+<div style="position:fixed;bottom:0;left:0;right:0;height:14px;z-index:9998;pointer-events:none;background:repeating-linear-gradient(90deg,#9b2226 0 36px,#e5e7eb 36px 40px);border-top:3px dashed #ffffff;box-shadow:0 -2px 10px rgba(255,255,255,0.9);"></div>
+<div style="position:fixed;top:0;bottom:0;left:0;width:14px;z-index:9998;pointer-events:none;background:repeating-linear-gradient(0deg,#9b2226 0 22px,#e5e7eb 22px 26px);border-right:3px dashed #ffffff;box-shadow:2px 0 10px rgba(255,255,255,0.9);"></div>
+<div style="position:fixed;top:0;bottom:0;right:0;width:14px;z-index:9998;pointer-events:none;background:repeating-linear-gradient(0deg,#9b2226 0 22px,#e5e7eb 22px 26px);border-left:3px dashed #ffffff;box-shadow:-2px 0 10px rgba(255,255,255,0.9);"></div>
+
+{/* 1. MARCO DE CHIMENEA DE LADRILLOS CON NIEVE Y ESCARCHA EN TODA LA PANTALLA */}
+<div class="brick-frame top" aria-hidden="true"></div>
+<div class="brick-frame bottom" aria-hidden="true"></div>
+<div class="brick-frame left" aria-hidden="true"></div>
+<div class="brick-frame right" aria-hidden="true"></div>
+
+{/* 2. LLUVIA DE NIEVE, ESFERAS DE COLORES, PIÑAS DE PINO Y CARAMELOS */}
+<div class="snowflakes-container" aria-hidden="true">
+    <div class="fall-item snow">❄</div>
+    <div class="fall-item ornament red">●</div>
+    <div class="fall-item pinecone">🌲</div>
+    <div class="fall-item candy">🍬</div>
+    <div class="fall-item snow">❅</div>
+    <div class="fall-item ornament gold">●</div>
+    <div class="fall-item snow">❆</div>
+    <div class="fall-item candy">🍭</div>
+    <div class="fall-item ornament blue">●</div>
+    <div class="fall-item snow">❄</div>
+    <div class="fall-item pinecone">🌲</div>
+    <div class="fall-item ornament green">●</div>
+    <div class="fall-item snow">❅</div>
+    <div class="fall-item candy">🍬</div>
+    <div class="fall-item ornament red">●</div>
+    <div class="fall-item snow">❆</div>
+</div>
+
+<header class="christmas-header">
+    {/* 3. BANNER SUPERIOR CON ESTRELLA, CORONA DE ADVIENTO SOBRE SCJ Y NACIMIENTO CARICATURA */}
+    <div class="christmas-banner">
+        {/* Estrella de Belén Brillante */}
+        <div class="bethlehem-star">
+            <svg viewBox="0 0 100 100" width="64" height="64">
+                <circle cx="50" cy="50" r="42" fill="#ffd700" opacity="0.25" class="star-halo" />
+                <polygon points="50,2 56,42 98,50 56,58 50,98 44,58 2,50 44,42" fill="#FFF7CC" />
+                <polygon points="50,16 54,46 84,50 54,54 50,84 46,54 16,50 46,46" fill="#FFD700" />
+            </svg>
+        </div>
+
+        {/* Corona de Adviento encima de SCJ (Azul, Rojo, Azul) */}
+        <div class="center-greeting">
+            <svg viewBox="0 0 180 70" width="140" height="54" class="advent-wreath">
+                <ellipse cx="90" cy="52" rx="66" ry="14" fill="#0b4f26" stroke="#198754" stroke-width="4" stroke-dasharray="5 3" />
+                <path d="M42,54 Q90,65 138,54" fill="none" stroke="#d90429" stroke-width="3.5" />
+                                <rect x="38" y="24" width="9" height="22" rx="2" fill="#7b2cbf" />
+                <path d="M42.5,12 Q46,18 42.5,23 Q39,18 42.5,12 Z" fill="#ffbe0b" class="candle-flame" />
+                <rect x="61" y="20" width="9" height="26" rx="2" fill="#7b2cbf" />
+                <path d="M65.5,8 Q69,14 65.5,19 Q62,14 65.5,8 Z" fill="#ffbe0b" class="candle-flame delay-1" />
+                {/* Vela Blanca Central (Cirio de Navidad) */}
+                <rect x="84.5" y="14" width="11" height="34" rx="2" fill="#ffffff" stroke="#ffd700" stroke-width="1" />
+                <path d="M90,2 Q94,8 90,13 Q86,8 90,2 Z" fill="#ffbe0b" class="candle-flame" />
+                <rect x="110" y="20" width="9" height="26" rx="2" fill="#ff4d6d" />
+                <path d="M114.5,8 Q118,14 114.5,19 Q111,14 114.5,8 Z" fill="#ffbe0b" class="candle-flame delay-1" />
+                <rect x="133" y="24" width="9" height="22" rx="2" fill="#7b2cbf" />
+                <path d="M137.5,12 Q141,18 137.5,23 Q134,18 137.5,12 Z" fill="#ffbe0b" class="candle-flame" />
+
+            </svg>
+            <div class="christmas-message">
+                <span class="scj-brand"><span class="scj-s">S</span><span class="scj-c">C</span><span class="scj-j">J</span></span>
+                <span class="greeting-text"> te desea ¡Felices Fiestas! ✨</span>
+            </div>
+        </div>
+
+        {/* NACIMIENTO TIPO CARICATURA NÍTIDA Y EXPRESIVA */}
+                {/* PESEBRE DE MADERA ILUMINADO CON LUCES LED CÁLIDAS */}
+                {/* PESEBRE ARTESANAL DETALLADO TIPO MADERA ILUMINADA CON LUCES LED */}
+                {/* PESEBRE COMPLETO CON ÁNGEL EN LA ESTRELLA Y LOS 3 REYES MAGOS (ORO, INCIENSO Y MIRRA) */}
+        <div class="nativity-scene" title="Nacimiento Navideño Completo">
+            <svg viewBox="0 0 430 165" width="415" height="160">
+                <defs>
+                    <filter id="ledGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="2.2" result="blur" />
+                        <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                {/* Base y Portal de Madera con foquitos LED */}
+                <rect x="18" y="148" width="394" height="12" rx="4" fill="#8b4513" stroke="#ffe599" stroke-width="1.4" />
+                <polygon points="40,70 215,28 390,70 382,78 215,38 48,78" fill="#9c6644" stroke="#fff3b0" stroke-width="1.6" filter="url(#ledGlow)" />
+                <rect x="56" y="72" width="12" height="76" fill="#7f4f24" />
+                <rect x="362" y="72" width="12" height="76" fill="#7f4f24" />
+
+                {/* ESTRELLA DE BELÉN + ÁNGEL GABRIEL EN LA PUNTA */}
+                <g transform="translate(215, 26)">
+                    <polygon points="0,-24 5,-6 24,0 5,6 0,24 -5,6 -24,0 -5,-6" fill="#ffd166" stroke="#fff" stroke-width="1.5" filter="url(#ledGlow)" class="star-halo" />
+                    <path d="M-22,-2 Q-10,-14 0,-3 Q10,-14 22,-2 Q10,6 0,0 Q-10,6 -22,-2 Z" fill="#fff" />
+                    <path d="M-7,1 L7,1 L10,16 L-10,16 Z" fill="#fff8dc" stroke="#ffd166" stroke-width="1" />
+                    <circle cx="0" cy="-5" r="5" fill="#ffe0bd" />
+                    <ellipse cx="0" cy="-12" rx="6" ry="2" fill="none" stroke="#ffd700" stroke-width="1.5" />
+                </g>
+
+                {/* SAN JOSÉ (Izquierda con bastón) */}
+                <g transform="translate(86, 62)">
+                    <path d="M-16,86 Q-14,26 0,22 Q14,26 16,86 Z" fill="#e6ccb2" stroke="#fff3b0" stroke-width="1.6" filter="url(#ledGlow)" />
+                    <path d="M-6,26 L6,26 L8,86 L-8,86 Z" fill="#606c38" />
+                    <circle cx="0" cy="14" r="8" fill="#ffe0bd" />
+                    <path d="M-6,14 Q0,24 6,14 Z" fill="#5c3a21" />
+                    <circle cx="-2.5" cy="12" r="1" fill="#222" /><circle cx="2.5" cy="12" r="1" fill="#222" />
+                    <circle cx="0" cy="14" r="11" fill="none" stroke="#fff3b0" stroke-width="1.5" />
+                    <path d="M17,22 Q22,14 22,24 L22,86" fill="none" stroke="#7f4f24" stroke-width="3.2" stroke-linecap="round" />
+                </g>
+
+                {/* VIRGEN MARÍA (Manto azul y velo) */}
+                <g transform="translate(138, 74)">
+                    <path d="M-15,74 Q-11,22 0,18 Q11,22 15,74 Z" fill="#4ea8de" stroke="#fff3b0" stroke-width="1.6" filter="url(#ledGlow)" />
+                    <path d="M-8,18 Q0,4 8,18 L10,48 L-10,48 Z" fill="#faedcd" />
+                    <circle cx="0" cy="13" r="6.8" fill="#ffe0bd" />
+                    <circle cx="-2.2" cy="12" r="0.9" fill="#222" /><circle cx="2.2" cy="12" r="0.9" fill="#222" />
+                    <circle cx="0" cy="13" r="10.5" fill="none" stroke="#fff3b0" stroke-width="1.5" />
+                </g>
+
+                {/* OVEJITA BLANCA */}
+                <g transform="translate(118, 132)">
+                    <ellipse cx="0" cy="5" rx="11" ry="7" fill="#fffcf2" stroke="#ffd166" stroke-width="1.3" />
+                    <circle cx="9" cy="2" r="4" fill="#e6ccb2" />
+                </g>
+
+                {/* PESEBRE Y NIÑO JESÚS EN EL CENTRO */}
+                <g transform="translate(195, 114)">
+                    <ellipse cx="0" cy="14" rx="23" ry="7" fill="#ffd166" filter="url(#ledGlow)" />
+                    <polygon points="-18,14 18,14 12,32 -12,32" fill="#9c6644" stroke="#fff3b0" stroke-width="1.4" />
+                    <ellipse cx="2" cy="10" rx="11" ry="5" fill="#fff" />
+                    <circle cx="-7" cy="7" r="5.5" fill="#ffe0bd" />
+                    <circle cx="-8.5" cy="6.5" r="0.9" fill="#222" /><circle cx="-5.5" cy="6.5" r="0.9" fill="#222" />
+                    <circle cx="-7" cy="7" r="8.5" fill="none" stroke="#fffbe6" stroke-width="1.6" />
+                </g>
+
+                {/* BURRITO Y BUEY */}
+                <g transform="translate(242, 132)">
+                    <ellipse cx="0" cy="5" rx="10" ry="7" fill="#8d99ae" stroke="#fff3b0" stroke-width="1.2" />
+                    <circle cx="-8" cy="-1" r="4.5" fill="#8d99ae" />
+                    <path d="M-10,-5 L-12,-13 M-7,-5 L-6,-13" stroke="#6c757d" stroke-width="2" />
+                </g>
+                <g transform="translate(274, 132)">
+                    <ellipse cx="0" cy="5" rx="12" ry="8" fill="#bc6c25" stroke="#fff3b0" stroke-width="1.2" />
+                    <circle cx="-9" cy="-1" r="5" fill="#bc6c25" />
+                    <path d="M-12,-5 Q-15,-10 -10,-9 M-7,-5 Q-4,-10 -9,-9" fill="none" stroke="#fefae0" stroke-width="1.8" />
+                </g>
+
+                {/* REY MAGO 1: MELCHOR (Túnica Verde y Cofre de ORO) */}
+                <g transform="translate(252, 64)">
+                    <path d="M-13,66 Q0,20 13,66 Z" fill="#2d6a4f" stroke="#fff3b0" stroke-width="1.5" filter="url(#ledGlow)" />
+                    <circle cx="0" cy="12" r="7" fill="#ffe0bd" />
+                    <path d="M-5,13 Q0,21 5,13 Z" fill="#5c3a21" />
+                    <circle cx="-2" cy="11" r="0.9" fill="#222" /><circle cx="2" cy="11" r="0.9" fill="#222" />
+                    <polygon points="-6,5 -3,-1 0,2 3,-1 6,5" fill="#ffd166" />
+                    {/* Cofre de Oro */}
+                    <rect x="-7" y="34" width="12" height="8" rx="1.5" fill="#ffd700" stroke="#b07d4f" stroke-width="1" />
+                    <circle cx="-1" cy="34" r="2.5" fill="#fff066" />
+                </g>
+
+                {/* REY MAGO 2: GASPAR (Túnica Roja, Barba Blanca y Copón de INCIENSO humeando) */}
+                <g transform="translate(294, 66)">
+                    <path d="M-13,64 Q0,20 13,64 Z" fill="#9b2226" stroke="#fff3b0" stroke-width="1.5" filter="url(#ledGlow)" />
+                    <circle cx="0" cy="12" r="7" fill="#ffe0bd" />
+                    <path d="M-6,13 Q0,23 6,13 Z" fill="#ffffff" />
+                    <circle cx="-2" cy="11" r="0.9" fill="#222" /><circle cx="2" cy="11" r="0.9" fill="#222" />
+                    <polygon points="-6,5 -3,-1 0,2 3,-1 6,5" fill="#ffd166" />
+                    {/* Incensario Dorado con humito */}
+                    <ellipse cx="-2" cy="38" rx="5" ry="4" fill="#ffd166" stroke="#b07d4f" stroke-width="1" />
+                    <polygon points="-5,34 1,34 -2,29" fill="#ffd166" />
+                    <path d="M-2,28 Q-5,24 -1,21" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.85" />
+                </g>
+
+                {/* REY MAGO 3: BALTAZAR (Túnica Azul, Turbante y Vasija de MIRRA) */}
+                <g transform="translate(336, 64)">
+                    <path d="M-13,66 Q0,20 13,66 Z" fill="#1d3557" stroke="#fff3b0" stroke-width="1.5" filter="url(#ledGlow)" />
+                    <circle cx="0" cy="12" r="6.8" fill="#8d5524" />
+                    <circle cx="-2" cy="11" r="0.9" fill="#fff" /><circle cx="2" cy="11" r="0.9" fill="#fff" />
+                    <ellipse cx="0" cy="5" rx="8" ry="4.5" fill="#4ea8de" stroke="#ffd166" stroke-width="1" />
+                    {/* Vasija / Ánfora de Mirra */}
+                    <ellipse cx="-3" cy="38" rx="4.5" ry="6" fill="#e09f3e" stroke="#fff3b0" stroke-width="1" />
+                    <rect x="-5" y="30" width="4" height="3" fill="#ffd166" />
+                </g>
+            </svg>
+        </div>
+
+
+    {/* 4. MENÚ PRINCIPAL DE SCJ */}
+    <div class="header-container">
+        <a href="/">
+            <img src="/logo-scj.png" alt="Servicios Electromecánicos SCJ Logo" class="site-logo" />
+        </a>
+        <nav>
+            <ul>
+                <li><a href="/nuestros-servicios">Nuestros Servicios</a></li>
+                <li><a href="/embobinados">Embobinados</a></li>
+                <li><a href="/compresores">Compresores</a></li>
+                <li><a href="/seguridad-electronica">Seguridad Electrónica</a></li>
+                <li><a href="/contactanos">Contáctanos</a></li>
+                <li><a href="/cotizacion">Cotización</a></li>
+                <li><a href="/blog">Blog/Notas</a></li>
+                       </ul>
+        </nav>
+    </div>
+
+    {/* 5. ESCARCHA VERDE PELUDA EN ONDAS (SEMI-U) CON BASTONES DE CARAMELO COLGANDO Y FOQUITOS */}
+    <div class="swags-garland-container" aria-hidden="true">
+        {Array.from({ length: 8 }).map(() => (
+            <div class="garland-swag">
+                <svg viewBox="0 0 200 75" preserveAspectRatio="none" class="swag-svg">
+                    <path d="M 0,0 Q 100,62 200,0" fill="none" stroke="#062c17" stroke-width="22" stroke-linecap="round" />
+                    <path d="M 0,0 Q 100,62 200,0" fill="none" stroke="#0f5132" stroke-width="17" stroke-dasharray="2 3" stroke-linecap="round" />
+                    <path d="M 0,0 Q 100,62 200,0" fill="none" stroke="#198754" stroke-width="12" stroke-dasharray="1 4" stroke-linecap="round" />
+                    <path d="M 0,0 Q 100,62 200,0" fill="none" stroke="#2ecc71" stroke-width="6" stroke-dasharray="1 5" stroke-linecap="round" />
+
+                    <g transform="translate(100, 32)">
+                        <path d="M0,0 L0,24 Q0,31 -7,31 Q-13,31 -13,25" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+                        <path d="M0,0 L0,24 Q0,31 -7,31 Q-13,31 -13,25" fill="none" stroke="#d90429" stroke-width="5" stroke-dasharray="4 4" stroke-linecap="round" />
+                    </g>
+
+                    <circle cx="55" cy="25" r="5" fill="#d90429" />
+                    <circle cx="145" cy="25" r="5" fill="#d90429" />
+                    <circle cx="30" cy="14" r="4.5" fill="#fff066" class="svg-bulb" />
+                    <circle cx="78" cy="31" r="4.5" fill="#ffd700" class="svg-bulb delay-1" />
+                    <circle cx="122" cy="31" r="4.5" fill="#fff066" class="svg-bulb" />
+                    <circle cx="170" cy="14" r="4.5" fill="#ffd700" class="svg-bulb delay-1" />
+                </svg>
+            </div>
+        ))}
+    </div>
+</header>
+
+<style>
+
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 9999;
+border: 14px solid #7f1d1d;
+border-image: repeating-linear-gradient(
+0deg,
+#8b261d 0px,
+#8b261d 14px,
+#e2e8f0 14px,
+#ffffff 17px,
+#a52a2a 17px,
+#a52a2a 31px,
+#cbd5e1 31px,
+#ffffff 34px
+) 14;
+box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.75), inset 0 0 26px rgba(0, 0, 0, 0.6);
+}
+/* --- 2. LLUVIA DE NIEVE, ESFERAS, PIÑAS Y CARAMELOS --- */
+.snowflakes-container {
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: 9990;
+overflow: hidden;
+}
+.fall-item {
+position: fixed;
+top: -10%;
+user-select: none;
+animation: fall linear infinite;
+}
+.fall-item.snow { color: #ffffff; font-size: 1.4rem; text-shadow: 0 0 8px #fff; }
+.fall-item.ornament { font-size: 1.3rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+.fall-item.ornament.red { color: #ff002b; }
+.fall-item.ornament.gold { color: #ffd700; }
+.fall-item.ornament.blue { color: #00b4d8; }
+.fall-item.ornament.green { color: #2ecc71; }
+.fall-item.pinecone { font-size: 1.3rem; filter: sepia(0.8) saturate(1.5); }
+.fall-item.candy { font-size: 1.3rem; }
+@keyframes fall {
+0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.95; }
+100% { transform: translateY(110vh) rotate(360deg); opacity: 0.4; }
+}
+.fall-item:nth-child(1)  { left: 4%;  animation-duration: 9s;   animation-delay: 0s; }
+.fall-item:nth-child(2)  { left: 10%; animation-duration: 12s;  animation-delay: 1.5s; }
+.fall-item:nth-child(3)  { left: 16%; animation-duration: 10s;  animation-delay: 3s; }
+.fall-item:nth-child(4)  { left: 22%; animation-duration: 11s;  animation-delay: 0.8s; }
+.fall-item:nth-child(5)  { left: 28%; animation-duration: 8.5s; animation-delay: 2.2s; }
+.fall-item:nth-child(6)  { left: 34%; animation-duration: 13s;  animation-delay: 4s; }
+.fall-item:nth-child(7)  { left: 40%; animation-duration: 9.5s; animation-delay: 1.1s; }
+.fall-item:nth-child(8)  { left: 46%; animation-duration: 11.5s;animation-delay: 3.4s; }
+.fall-item:nth-child(9)  { left: 52%; animation-duration: 10s;  animation-delay: 0.5s; }
+.fall-item:nth-child(10) { left: 58%; animation-duration: 12.5s;animation-delay: 2.7s; }
+.fall-item:nth-child(11) { left: 64%; animation-duration: 9s;   animation-delay: 4.2s; }
+.fall-item:nth-child(12) { left: 70%; animation-duration: 11s;  animation-delay: 1.8s; }
+.fall-item:nth-child(13) { left: 76%; animation-duration: 13.5s;animation-delay: 3.1s; }
+.fall-item:nth-child(14) { left: 82%; animation-duration: 9.5s; animation-delay: 0.9s; }
+.fall-item:nth-child(15) { left: 88%; animation-duration: 12s;  animation-delay: 2.4s; }
+.fall-item:nth-child(16) { left: 94%; animation-duration: 10.5s;animation-delay: 3.8s; }
+/* --- 3. ENCABEZADO Y BANNER --- */
+.christmas-header {
+width: 100%;
+background-color: rgba(0, 0, 0, 0.35);
+position: relative;
+z-index: 20;
+}
+.christmas-banner {
+background: linear-gradient(90deg, #082e18 0%, #780000 50%, #082e18 100%);
+border-bottom: 3px solid #ffd700;
+padding: 0.5rem 1.5rem;
+display: flex;
+align-items: center;
+justify-content: space-around;
+gap: 1rem;
+flex-wrap: wrap;
+}
+.center-greeting {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.advent-wreath { margin-bottom: -4px; }
+.candle-flame { animation: flicker 0.8s infinite alternate; }
+.candle-flame.delay-1 { animation-delay: 0.4s; }
+@keyframes flicker {
+from { transform: scale(0.92); opacity: 0.85; }
+to   { transform: scale(1.12); opacity: 1; }
+}
+.christmas-message {
+font-size: 1.45rem;
+font-weight: 800;
+text-align: center;
+}
+.scj-brand {
+font-size: 1.85rem;
+font-weight: 900;
+background: rgba(255, 255, 255, 0.94);
+padding: 1px 10px;
+border-radius: 8px;
+box-shadow: 0 0 12px #ffd700;
+margin-right: 4px;
+}
+.scj-s { color: #0056b3; }
+.scj-c { color: #d90429; }
+.scj-j { color: #0056b3; }
+.greeting-text {
+color: #fffbe6;
+text-shadow: 0 0 10px #ffd700, 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+.star-halo { animation: pulseGlow 2s infinite alternate; }
+.svg-bulb { animation: blinkLight 1.2s infinite alternate; }
+.svg-bulb.delay-1 { animation-delay: 0.6s; }
+@keyframes pulseGlow {
+from { opacity: 0.2; }
+to   { opacity: 0.5; }
+}
+@keyframes blinkLight {
+0%   { opacity: 0.55; filter: drop-shadow(0 0 2px #ffd700); }
+100% { opacity: 1; filter: drop-shadow(0 0 8px #fff066) drop-shadow(0 0 14px #ffae00); }
+}
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.8rem 2rem;
+}
+.site-logo { height: 60px; width: auto; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+nav li { margin-left: 2rem; }
+nav a {
+color: var(--color-blanco);
+text-decoration: none;
+font-weight: bold;
+transition: color 0.3s ease;
+font-size: 1.1rem;
+}
+nav a:hover { color: #ffd700; text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); }
+/* --- 5. ESCARCHA PELUDA CON BASTONES EN SEMI-U --- */
+.swags-garland-container {
+position: absolute;
+bottom: -52px;
+left: 0;
+width: 100%;
+height: 54px;
+display: flex;
+pointer-events: none;
+z-index: 25;
+filter: drop-shadow(0 5px 6px rgba(0, 0, 0, 0.45));
+}
+.garland-swag { flex: 1; height: 100%; overflow: visible; }
+.swag-svg { width: 100%; height: 100%; overflow: visible; }
+@media (max-width: 768px) {
+    /* --- 1. MARCO REALISTA DE LADRILLOS DE CHIMENEA CON NIEVE Y ESCARCHA --- */
+    .brick-frame {
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        background-color: #8b261d;
+        background-image:
+            linear-gradient(335deg, rgba(0,0,0,0.25) 23px, transparent 23px),
+            linear-gradient(155deg, rgba(165,42,42,0.85) 23px, transparent 23px),
+            linear-gradient(335deg, rgba(0,0,0,0.25) 23px, transparent 23px),
+            linear-gradient(155deg, rgba(165,42,42,0.85) 23px, transparent 23px);
+        background-size: 48px 28px;
+        background-position: 0px 2px, 4px 26px, 24px 16px, 28px 12px;
+        box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.8);
+    }
+    .brick-frame.top {
+        top: 0; left: 0; right: 0; height: 14px;
+        border-bottom: 3px dashed #ffffff;
+    }
+    .brick-frame.bottom {
+        bottom: 0; left: 0; right: 0; height: 14px;
+        border-top: 3px dashed #ffffff;
+    }
+    .brick-frame.left {
+        top: 0; bottom: 0; left: 0; width: 14px;
+        border-right: 3px dashed #ffffff;
+    }
+    .brick-frame.right {
+        top: 0; bottom: 0; right: 0; width: 14px;
+        border-left: 3px dashed #ffffff;
+    }
+
+.christmas-banner { flex-direction: column; gap: 0.5rem; }
+.header-container { flex-direction: column; padding: 1rem; }
+nav ul { flex-direction: column; margin-top: 1rem; text-align: center; }
+nav li { margin: 0.5rem 0; }
+}
+
+</style>
