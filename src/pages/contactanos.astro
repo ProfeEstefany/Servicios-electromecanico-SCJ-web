@@ -29,11 +29,95 @@ const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
                     <li><strong>WhatsApp 1:</strong> <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">+52 (664) 711-29-23</a></li>
                     <li><strong>WhatsApp 2:</strong> <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">+52 (663) 197-55-90</a></li>
                     <li><strong>WhatsApp 3:</strong> <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">+52 (686) 247-57-83</a></li>
-                    <li><strong>Email:</strong> <a id="email-directo" href="mailto:embobinados.scj@://gmail.com">embobinados.scj@gmail.com</a></li>
+                    <li>
+                        <strong>Email:</strong>
+                        <button type="button" id="toggle-email-form" class="email-trigger-btn">
+                            embobinados.scj@gmail.com (Clic aquí para enviar mensaje)
+                        </button>
+                    </li>
                     <li><strong>Dirección:</strong> Tijuana, Baja California, México.</li>
                     <li><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM</li>
                 </ul>
-                <p>
+
+                <div id="email-form-container" class="email-modal-box hidden">
+                    <div class="form-header">
+                        <h3>Envíanos un mensaje rápido</h3>
+                        <button type="button" id="close-email-form" class="close-btn" aria-label="Cerrar formulario">X</button>
+                    </div>
+
+                    <form
+                        id="scj-contact-form"
+                        name="contacto-scj"
+                        method="POST"
+                        data-netlify="true"
+                        enctype="multipart/form-data"
+                    >
+                        <input type="hidden" name="form-name" value="contacto-scj" />
+
+                        <div class="form-group">
+                            <label for="servicio">1. ¿Qué servicio requiere? *</label>
+                            <select id="servicio" name="Servicio Requerido" required>
+                                <option value="">-- Selecciona una opción --</option>
+                                <option value="Embobinado">Embobinado</option>
+                                <option value="Compresores">Compresores</option>
+                                <option value="Sistemas de Seguridad Electrónica">Sistemas de Seguridad Electrónica</option>
+                            </select>
+                        </div>
+
+                        <div id="tipo-atencion-group" class="form-group hidden">
+                            <label for="tipo_atencion">2. Tipo de atención requerida *</label>
+                            <select id="tipo_atencion" name="Tipo de Atención">
+                                <option value="">-- Selecciona revisión o reparación --</option>
+                                <option value="Revisión y diagnóstico">Revisión y diagnóstico</option>
+                                <option value="Reparación">Reparación</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo *</label>
+                                <input type="text" id="nombre" name="Nombre" placeholder="Tu nombre" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="correo">Tu correo electrónico *</label>
+                                <input type="email" id="correo" name="Correo Electrónico" placeholder="ejemplo@correo.com" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="empresa">Empresa (Opcional)</label>
+                                <input type="text" id="empresa" name="Empresa" placeholder="Nombre de tu empresa" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Teléfono o WhatsApp de contacto *</label>
+                                <input type="tel" id="telefono" name="Teléfono de Contacto" placeholder="(664) 000-00-00" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Explicación breve de lo que requiere *</label>
+                            <textarea id="mensaje" name="Explicación" rows="4" placeholder="Describe brevemente el equipo, falla o trabajo que necesitas..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fotos">Subir fotos del equipo (Opcional - Máximo 3 fotos)</label>
+                            <input type="file" id="fotos" name="Fotos Adjuntas" accept="image/*" multiple />
+                            <small id="fotos-aviso" class="file-hint">Puedes seleccionar hasta 3 imágenes (JPG, PNG).</small>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-enviar-azul">Enviar Mensaje</button>
+                        </div>
+                    </form>
+
+                    <div id="form-success-msg" class="success-box hidden">
+                        <h4>¡Mensaje enviado con éxito!</h4>
+                        <p>Hemos recibido tu solicitud en SCJ. Nos pondremos en contacto contigo a la brevedad.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 1.5rem;">
                     También puedes utilizar nuestro <a href="/cotizacion">formulario de cotización</a> para enviarnos los detalles de tu proyecto.
                 </p>
             </section>
@@ -42,31 +126,98 @@ const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
         </main>
         <Footer />
         <WhatsAppButton />
-
         <script>
-            const emailLink = document.getElementById('email-directo');
-            if (emailLink) {
-                emailLink.addEventListener('click', function () {
-                    let appAbierta = false;
-                    const marcarAbierta = () => { appAbierta = true; };
-                    window.addEventListener('blur', marcarAbierta, { once: true });
+            const toggleBtn = document.getElementById('toggle-email-form');
+            const closeBtn = document.getElementById('close-email-form');
+            const formContainer = document.getElementById('email-form-container');
+            const servicioSelect = document.getElementById('servicio');
+            const tipoAtencionGroup = document.getElementById('tipo-atencion-group');
+            const tipoAtencionSelect = document.getElementById('tipo_atencion');
+            const fotosInput = document.getElementById('fotos');
+            const fotosAviso = document.getElementById('fotos-aviso');
+            const contactForm = document.getElementById('scj-contact-form');
+            const successMsg = document.getElementById('form-success-msg');
 
-                    setTimeout(() => {
-                        window.removeEventListener('blur', marcarAbierta);
-                        if (!appAbierta && document.hasFocus()) {
-                            window.open(
-                                'https://google.com',
-                                '_blank',
-                                'noopener,noreferrer'
-                            );
+            if (toggleBtn && formContainer) {
+                toggleBtn.addEventListener('click', function () {
+                    formContainer.classList.toggle('hidden');
+                    if (!formContainer.classList.contains('hidden')) {
+                        formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            }
+
+            if (closeBtn && formContainer) {
+                closeBtn.addEventListener('click', function () {
+                    formContainer.classList.add('hidden');
+                });
+            }
+
+            if (servicioSelect && tipoAtencionGroup && tipoAtencionSelect) {
+                servicioSelect.addEventListener('change', function () {
+                    if (servicioSelect.value !== '') {
+                        tipoAtencionGroup.classList.remove('hidden');
+                        tipoAtencionSelect.setAttribute('required', 'required');
+                    } else {
+                        tipoAtencionGroup.classList.add('hidden');
+                        tipoAtencionSelect.removeAttribute('required');
+                        tipoAtencionSelect.value = '';
+                    }
+                });
+            }
+
+            if (fotosInput && fotosAviso) {
+                fotosInput.addEventListener('change', function () {
+                    if (fotosInput.files && fotosInput.files.length > 3) {
+                        fotosAviso.textContent = 'Solo puedes subir un máximo de 3 fotos. Por favor selecciona 3 o menos.';
+                        fotosAviso.style.color = '#d90429';
+                        fotosInput.value = '';
+                    } else if (fotosInput.files && fotosInput.files.length > 0) {
+                        fotosAviso.textContent = 'Fotos seleccionadas correctamente (' + fotosInput.files.length + ').';
+                        fotosAviso.style.color = '#0d9488';
+                    } else {
+                        fotosAviso.textContent = 'Puedes seleccionar hasta 3 imágenes (JPG, PNG).';
+                        fotosAviso.style.color = '#555';
+                    }
+                });
+            }
+
+            if (contactForm && successMsg) {
+                contactForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = contactForm.querySelector('.btn-enviar-azul');
+                    if (submitBtn) {
+                        submitBtn.textContent = 'Enviando...';
+                        submitBtn.setAttribute('disabled', 'true');
+                    }
+
+                    const formData = new FormData(contactForm);
+
+                    try {
+                        const response = await fetch('/', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            contactForm.classList.add('hidden');
+                            successMsg.classList.remove('hidden');
+                        } else {
+                            alert('Hubo un problema al enviar el mensaje. Por favor intenta de nuevo.');
                         }
-                    }, 1200);
+                    } catch (error) {
+                        alert('Error de conexión. Por favor verifica tu internet.');
+                    } finally {
+                        if (submitBtn) {
+                            submitBtn.textContent = 'Enviar Mensaje';
+                            submitBtn.removeAttribute('disabled');
+                        }
+                    }
                 });
             }
         </script>
     </body>
 </html>
-
 <style>
     section {
         background-color: var(--color-blanco);
@@ -104,4 +255,162 @@ const pageDescription = "Contáctanos, SCJ es la solución a tu problema";
     section a:hover {
         color: var(--color-rojo-acento);
     }
+
+    .email-trigger-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--color-turquesa-principal);
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-decoration: underline;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .email-trigger-btn:hover {
+        color: var(--color-rojo-acento);
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .email-modal-box {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background-color: #f8fafc;
+        border: 2px solid var(--color-turquesa-principal);
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-header h3 {
+        margin: 0;
+        color: var(--color-rojo-acento);
+        font-size: 1.3rem;
+    }
+
+    .close-btn {
+        background-color: #e2e8f0;
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #334155;
+    }
+
+    .close-btn:hover {
+        background-color: var(--color-rojo-acento);
+        color: white;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+        color: #1e293b;
+        font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        border: 1px solid #94a3b8;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-family: inherit;
+        background-color: #ffffff;
+        color: #0f172a;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    .file-hint {
+        margin-top: 0.3rem;
+        font-size: 0.85rem;
+        color: #555;
+    }
+
+    .form-actions {
+        margin-top: 1rem;
+        text-align: right;
+    }
+
+    .btn-enviar-azul {
+        background-color: #2563eb;
+        color: #ffffff;
+        border: none;
+        padding: 0.85rem 2rem;
+        font-size: 1.05rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-enviar-azul:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-1px);
+    }
+
+    .btn-enviar-azul:disabled {
+        background-color: #93c5fd;
+        cursor: not-allowed;
+    }
+
+    .success-box {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #ecfdf5;
+        border: 1.5px solid #10b981;
+        border-radius: 8px;
+        color: #065f46;
+    }
+
+    .success-box h4 {
+        margin-top: 0;
+        color: #047857;
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+        .btn-enviar-azul {
+            width: 100%;
+        }
+    }
 </style>
+
